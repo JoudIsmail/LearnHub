@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href='https://fonts.googleapis.com/css?family=Poppins' rel="stylesheet" type="text/css" href="..\css\style.css"/>
+		<meta name="description" content="Informationen über die Creator"/>
+		<title> Registration </title>
+		<style>
+			.box2{
+				margin: 7% 0% 0% 16%;
+				box-sizing: border-box;
+				font-weight: bolder;
+				width: 70%;
+				height: 20%;
+				background: silver;
+				padding: 1% 1% 1% 1%;
+				text-align:center;
+			}
+
+			.form1{
+				text-align:center;
+				line-height:45px;
+			}
+
+			.button1{
+				height:50px;
+				margin:1%;
+			}
+			
+			.description_box{
+				margin: 7% 10% 0% 0%;
+				float:right;
+				width: 30%;
+				height: 40%;
+				background: #D0A9F5;
+				font-weight: normal;
+				font-family: Poppins;
+			}
+			ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+				background-color: #333;
+			}
+
+			li {
+			    float: left;
+			}
+
+			li a {
+			    display: block;
+			    color: white;
+			    text-align: center;
+			    padding: 14px 16px;
+			    text-decoration: none;
+			}
+			
+			li a:hover:not(.active) {
+			    background-color: #111;
+			}
+			.active {
+				background-color: #4CAF50;
+			}
+		</style>
+	</head>
+	<body style="background-color: powderblue";>
+		<ul>
+		  <li><a href="#meine kurse">Meine Kurse</a></li>
+		  <li><a href="#shop">Shop</a></li>
+		  <li><a href="#logout">logout</a></li>
+		  <li><a class="active" href="#about">About Us</a></li>
+		  <li><a href="#guest">Gästebuch</a></li>
+		  <li><a href="#about">dark mode on/off</a></li>
+		</ul>
+	
+		<div class="box2">
+			<h1 style="font-weight: normal; font-family:Poppins"> Registration </h1>
+			<div>
+				<form class="form1">
+					<input placeholder="E-Mail Addresse"/>
+					<br>
+					<input placeholder="Passwort"/>
+					<br>
+					<input placeholder="Passwort wiederholen"/>
+					<br>
+					<input type="submit" class="button1" value="Registrieren als Schüler"/>
+					<br>
+					<input type="submit" class="button1" value="Registrieren als Lehrer"/>
+				</form>
+			</div>
+		</div>
+		
+	</body>
+</html>
