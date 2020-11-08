@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href='https://fonts.googleapis.com/css?family=Poppins' rel="stylesheet" type="text/css" href="..\css\style.css"/>
+		<meta charset="UTF-8" name="description" content="Informationen über die Creator" name="viewport" content="width=device-width, initial-scale=1">
+		<title> About-us Prototyp </title>
+		<style>
+			* {box-sizing: border-box;}
+
+			body {
+			  font-family: Poppins;
+			}
+
+			.kurs_box{
+				margin-left: 13%;		
+			}
+			
+			img	{
+				height:50%;
+				width:15%;
+				margin-top:5%;
+			}
+			
+			.kurs_beschreibung{
+				width:32%;
+				display: inline-block;
+				margin-left: 3%;
+				vertical-align: top;
+				margin-top:5%;
+			}
+			
+			.kurs_preis_ersteller{
+				width:15%;
+				display: inline-block;
+				vertical-align: top;
+				margin-top:5%;
+				font-weight:bold;
+			}
+			
+			button{
+				vertical-align: top;
+				margin-top:0%;
+				width:50%;
+				font-weight:bold;
+			}
+		</style>
+	</head>
+	<body>
+	
+		<div style="margin-left:13%; margin-top:3%">
+			<h1 > Admin Panel </h1>
+			<p>Angemeldet als: Benutzername</p>
+		</div>
+		
+		<div style="margin-top:2%">
+			<img class="kurs_box" src="bilder/python.png">
+			<p class="kurs_beschreibung">Java ist eine besondere Programmiersprache, die sich an </br> 
+									der Syntax der Programmiersprachen C und C++ anlehnt. Bei der </br> 
+									Entwicklung von Java wurde von Beginn an genauestens darauf </br> 
+									geachtet, dass bestimmte schwere Programmierfehler erst gar nicht </br>
+									auftreten können. In diesem Einsteigerkurs lernen sie die Grundlagen </br>
+									der Sprache kennen und machen sich vertraut mit dem Code schreiben.</p>
+			<p class="kurs_preis_ersteller"> Ersteller: Prof. Dr. Simon Steinmetz </br>
+			<button type="button" onclick="alert('Hello world!')">Kurs löschen</button> </p>
+		</div>
+		
+		<div style="margin-top:4%">
+			<img class="kurs_box" src="bilder/java.png">
+			<p class="kurs_beschreibung"> Die Syntax der Sprache ist sehr einfach und leicht zu verstehen </br> 
+										und die Länge des Codes ist relativ kurz. Es macht meist auch für </br> 
+										Anfänger viel Spaß, sich mit Python zu beschäftigen, weil du dich ganz </br> 
+										auf die Lösung des Problems konzentrieren kannst, statt dich mit Besonderheiten
+										der Sprache herumzuschlagen.</p>
+			<p class="kurs_preis_ersteller"> Ersteller: Prof. Dr. Leo Mathys </br>
+			<button type="button" onclick="alert('Hello World')">Kurs löschen</button> </p>
+		</div>
+
+		<div style="margin-top:4%; margin-bottom:5%">
+			<img class="kurs_box" src="bilder/web-entwicklung.png">
+			<p class="kurs_beschreibung"> Seit der Kommerzialisierung des Internets Anfang der 1990er Jahre </br>
+										unterliegt die Webentwicklung einem ständigen Wandel. Waren Internetseiten 
+										früher als Ansammlungen schmuckloser Textfelder </br> angelegt, steht heute eine 
+										aufwendige Präsentation multimedialer </br> Inhalte im Vordergrund. Die ursprüngliche
+										Informationsplattform ist zum Unterhaltungsmedium geworden.</p>
+			<p class="kurs_preis_ersteller"> Ersteller: Prof. Dr. Nicolas Arend </br>
+			<button type="button" onclick="alert('Hello world!')">Kurs löschen</button> </p>			
+		</div>
+		
+		
+	</body>
+</html>
