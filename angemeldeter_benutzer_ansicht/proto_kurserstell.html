@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="de">
 	<head>
-		<link rel="stylesheet" type="text/css" href="../css/style.css"> 
-		<link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Poppins'>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<meta charset="UTF-8" name="description" content="Informationen über die Creator" name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="../css/style2.css">
+	    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Poppins'>
+	    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	    <link rel="shortcut icon" href="#"/>
+	    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	    <meta charset="UTF-8" name="description" content="Informationen über die Creator" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 		<title> Neuer Kurs - Learnhub </title>
-		<style>
+		<!-- <style>
 			button{
 				margin-top:0%;
 				width:42%;
@@ -14,136 +16,185 @@
 				font-weight:bold;
 				vertical-align:top;
 			}			
-		</style>
+		</style> -->
 	</head>
 	<body>
-		<div class="topnav">
-		  <a href="proto_about-us.html">About us</a>
-		  <a href="proto_shopansicht.html">Shop</a>
-		  <a class="active" href="proto_erstellte_kurse.html">erstellte Kurse</a>
-		  <a href="proto_gekaufte_kurse.html">gekaufte Kurse</a>
-		  <a href="proto_gaestebuch.html">Gästebuch</a>
-		  <a href="#logout">logout</a>
-		  <a href="#darkmode">darkmode on/off</a>
-		  <img style="height:5%; width:5%; margin-top:2px" alt="Logo der Internetseite. In schwarz geschrieben: Learnhub. Das hub in Learnhub steht vor orangenem Hintergrund." src="../bilder/learnhublogo.png">
+		<div class="fullscreen">
+			<nav>
+				<div class="container">
+					<img class="logo" src="../bilder/learnhublogo.png">
+					<a href="proto_about-us.html">About us</a>
+					<a href="proto_shopansicht.html">Shop</a>
+					<a href="proto_erstellte_kurse.html">erstellte Kurse</a>
+					<a href="proto_gekaufte_kurse.html">gekaufte Kurse</a>
+					<a href="proto_gaestebuch.html">Gästebuch</a>
+					<a href="#logout">logout</a>
+				</div>
+			</nav>
+
+			<div class="erstell-container">
+				<div class="erstell-wrapper">
+						<div class="btn-div btn-erstellen">
+							<h1 class="h1-neue h1-java"> Neuen Kurs erstellen
+							<a class="btn-bearbeiten" href="#">
+								<div class="button-bearbeiten">
+								  Erstellen
+								</div></a></div></h1>
+					<p class="p-learn">Titel des Kurses:</p>
+					<input class="input-besch" >
+					<p class="p-learn">Kurzbeschreibung (Wird im Shop angezeigt):</p>
+					<textarea class="txtarea"></textarea>
+	
+					<p class="p-learn">Was kann man in diesem Kurs lernen?</p>
+					<textarea class="txtarea" ></textarea>
+	
+	
+					<p class="p-learn">Für wen ist dieser Kurs geeignet?</p>
+					<textarea class="txtarea"></textarea>
+	
+	
+					</br>
+					</br>
+					<fieldset>
+						<legend> Zur Person, Kontaktmöglichkeiten </legend>
+						<div class="kontakt-container">
+							<div class="kontakt-wrapper">
+								<p class="p-learn">Name des Kurserstellers:</p>
+								<input>
+								<br>
+								<p class="p-learn">Kontaktmöglichkeiten:</p>
+								<textarea class="txtarea"></textarea>
+	
+							</div>
+							<div class="kusrsteller-container">
+								<p class="p-bild p-learn">Bild des Kurserstellers:</p>
+								<img class="img-banner1" src="../bilder/noimage.png">
+								<br>
+								<div class="upload-btn-wrapper">
+									<button class="btn">Bild hochladen</button>
+									<input type="file" name="myfile" />
+								  </div>
+								<!-- <input type="submit" style="margin-right:13%" value="Bild hochladen"> -->
+							</div>
+	
+	
+							<div style="clear:both">
+							</div>
+						</div>
+		
+						</fieldset>
+		
+						</br>
+						</br>
+		
+						<fieldset id="barrierefreiheit_fieldset">
+							<legend> Barrierefreiheit </legend>
+		
+							<p class="p-learn">Ist dieser Kurs für Sehbehinderte geeignet? <i class="fa fa-info-circle" title="Dies ist beispielsweise der Fall, wenn visuelle Medien ausreichend per Text (für Screenreader) oder Stimme beschrieben werden."></i></p>
+							<input type="radio" id="sehbehinderteJa" name="sehbehinderte">
+							<label for="sehbehinderteJa"> Ja </label>
+							<input type="radio" id="sehbehinderteNein" name="sehbehinderte">
+							<label for="sehbehinderteNein"> Nein </label>
+		
+							<p class="p-learn">Ist dieser Kurs für Hörbehinderte geeignet? <i class="fa fa-info-circle" title="Dies ist beispielsweise der Fall, wenn begleitend zu Audiomaterial (etwa in Videos) inhaltich ausreichender Text verfügbar ist."></i></p>
+							<input type="radio" id="hörbehindeteJa" name="hörbehinderte">
+							<label for="hörbehinderteJa"> Ja </label>
+							<input type="radio" id="hörbehinderteNein" name="hörbehinderte">
+							<label for="hörbehinderteNein"> Nein </label>
+		
+		
+							<p class="p-learn">Beschreibung des Kursbildes für Benutzer mit Screenreadern:</p>
+							<input >
+		
+		
+						</fieldset>
+		
+						</br>
+					</div>
+					<div class="bild-container">
+						<div class="bild-wrapper">
+							<div class="bild-wrapper1">
+								<p class="p-upload">Bild hochladen</p>
+							</div>
+							<img class="no-img" src="../bilder/noimage.png">
+						</div>
+						<p id="preisdisplay"> <strong class="preis-strong"> Preis: 89,99€ </strong></p>
+						<p class="p-learn"> Euro: <input onchange="euroChanged()" id="europicker" style="width:15%" type="number" min="1" step="any" value="89" /></p>
+						<p class="p-learn"> Cent: <input onchange="centChanged()" id="centpicker" style="width:15%" type="number" min="1" max="99" step="any" value="99"/></p>
+						<!-- <script>
+		
+							function updatePreis(preistext)
+							{
+								document.getElementById("preisdisplay").innerText  = preistext
+							}
+		
+							function euroChanged()
+							{
+								updatePreis("Preis: " + document.getElementById("europicker").value + "," + document.getElementById("centpicker").value + "€");
+							}
+		
+							function centChanged()
+							{
+								updatePreis("Preis: " + document.getElementById("europicker").value + "," + document.getElementById("centpicker").value + "€");
+							}
+		
+							
+						</script> -->
+						</br>
+						<p class="p-learn">Was ist in diesem Kurs enthalten?</p>
+						<textarea class="txtarea" >
+		</textarea>
+		
+		
+		
+		
+					</div>
+		
+		
+				</div>
+				<footer class="footer-distributed">
+
+					<div class="footer-left">	
+				  <img src="../bilder/learnhublogo.png">
+						<h3>About<span class="learn">Learn</span><span class="hub"><mark>hub</mark></span></h3>
+		
+						<p class="footer-company-name">© 2020 E-Learning Platform. Ltd.</p>
+					</div>
+		
+					<div class="footer-center">
+						<div>
+							<i class="fa fa-map-marker"></i>
+							  <p><span>Hochschule</span>
+								Trier</p>
+						</div>
+						<div>
+							<i class="fa fa-envelope"></i>
+							<p><a href="ismailj@hochschule-trier.de">ismailj@hochschule-trier.de</a></p>
+							<!-- <i class="fa fa-envelope"></i>
+							<p><a href="mxtr0669@hochschule-trier.de">mxtr0669@hochschule-trier.de</a></p>
+							<i class="fa fa-envelope"></i>
+							<p><a href="fachriw@hochschule-trier.de">fachriw@hochschule-trier.de</a></p> -->
+						</div>
+					</div>
+					<div class="footer-right">
+						<p class="footer-company-about">
+							<span>About the company</span>
+							We offer training and skill building courses across Technology, Design, Management, Science and Humanities.</p>
+						<div class="footer-icons">
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-instagram"></i></a>
+							<a href="#"><i class="fa fa-linkedin"></i></a>
+							<a href="#"><i class="fa fa-youtube"></i></a>
+						</div>
+					</div>
+				</footer>
 		</div>
 	
-		<div style="background:#5A5A5A; color:white">
-			<div style="margin-top:4%; margin-left: 15%; width:40%; display: inline-block;">
-				<h1 style="margin-top:0"> Neuen Kurs erstellen
-				<input type="submit" value="Erstellen"></h1>
-				<p>Titel des Kurses:</p>
-				<input style="width:80%" >
-				<p>Kurzbeschreibung (Wird im Shop angezeigt):</p>
-				<textarea style="width:85%; height: 100px;" ></textarea>
+		
 
-				<p>Was kann man in diesem Kurs lernen?</p>
-				<textarea style="width:85%; height: 100px;" ></textarea>
-
-
-				<p>Für wen ist dieser Kurs geeignet?</p>
-				<textarea style="width:85%; height: 100px;"></textarea>
-
-
-				</br>
-				</br>
-				<fieldset>
-					<legend> Zur Person, Kontaktmöglichkeiten </legend>
-					<div style="margin:auto">
-						<div style="float:left;width:50%;">
-							<p>Name des Kurserstellers:</p>
-							<input >
-							</br>
-							<p>Kontaktmöglichkeiten:</p>
-							<textarea style="width:85%; height:100px;">
-</textarea>
-
-						</div>
-						<div style="float:left;width:50%;text-align:right">
-							<p style="margin-right:13%">Bild des Kurserstellers:</p>
-							<img style="width:44%; height:44%;margin-right:13%" src="bilder/noimage.png">
-							</br>
-							<input type="submit" style="margin-right:13%" value="Bild hochladen">
-						</div>
-
-
-						<div style="clear:both">
-						</div>
-					</div>
-
-				</fieldset>
-
-				</br>
-				</br>
-
-				<fieldset id="barrierefreiheit_fieldset">
-					<legend> Barrierefreiheit </legend>
-
-					<p>Ist dieser Kurs für Sehbehinderte geeignet? <i class="fa fa-info-circle" title="Dies ist beispielsweise der Fall, wenn visuelle Medien ausreichend per Text (für Screenreader) oder Stimme beschrieben werden."></i></p>
-					<input type="radio" id="sehbehinderteJa" name="sehbehinderte">
-					<label for="sehbehinderteJa"> Ja </label>
-					<input type="radio" id="sehbehinderteNein" name="sehbehinderte">
-					<label for="sehbehinderteNein"> Nein </label>
-
-					<p>Ist dieser Kurs für Hörbehinderte geeignet? <i class="fa fa-info-circle" title="Dies ist beispielsweise der Fall, wenn begleitend zu Audiomaterial (etwa in Videos) inhaltich ausreichender Text verfügbar ist."></i></p>
-					<input type="radio" id="hörbehindeteJa" name="hörbehinderte">
-					<label for="hörbehinderteJa"> Ja </label>
-					<input type="radio" id="hörbehinderteNein" name="hörbehinderte">
-					<label for="hörbehinderteNein"> Nein </label>
-
-
-					<p>Beschreibung des Kursbildes für Benutzer mit Screenreadern:</p>
-					<input >
-
-
-				</fieldset>
-
-				</br>
-
-
-			</div>
-			<div style="margin-left:3%; width:30%; display: inline-block; vertical-align:top; margin-top:4%">
-				<div style="position:relative">
-					<div style="position:absolute; background-color:#0000007d; width:70%; height:70%; text-align:center; cursor:pointer">
-						<p style="font-size:40px">Bild hochladen</p>
-					</div>
-					<img style="height:70%; width:70%" src="bilder/noimage.png">
-				</div>
-				<p id="preisdisplay"> <strong style="vertical-align: top"> Preis: 89,99€ </strong></p>
-				<p> Euro: <input onchange="euroChanged()" id="europicker" style="width:15%" type="number" min="1" step="any" value="89" /></p>
-				<p> Cent: <input onchange="centChanged()" id="centpicker" style="width:15%" type="number" min="1" max="99" step="any" value="99"/></p>
-				<script>
-
-					function updatePreis(preistext)
-					{
-						document.getElementById("preisdisplay").innerText  = preistext
-					}
-
-					function euroChanged()
-					{
-						updatePreis("Preis: " + document.getElementById("europicker").value + "," + document.getElementById("centpicker").value + "€");
-					}
-
-					function centChanged()
-					{
-						updatePreis("Preis: " + document.getElementById("europicker").value + "," + document.getElementById("centpicker").value + "€");
-					}
-
-					
-				</script>
-
-				</br>
-				<p>Was ist in diesem Kurs enthalten?</p>
-				<textarea style="width:85%; height: 100px;" >
-</textarea>
-
-
-
-
-			</div>
-
-
-		</div> 
+						
+		 
 		
 	</body>
 </html>
