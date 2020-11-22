@@ -675,6 +675,105 @@ img{
         line-height: 2.2em;
     }
 
+    /* Admin Layout*/
+    .admin_body{
+		background-color:black;
+		color:lime;
+        font-family:mono;
+        width: 100%;
+
+	}
+
+	.admin_hr{
+		border: 1px solid #003e00;
+	}
+
+	.admin_function{
+		margin-left:5%;
+	}
+
+	.admin_kursL_box{
+		height:50em;
+		width: 80%;
+	}
+
+	.admin_actionlink{
+		margin-top:0;
+		color:black;
+		background-color:green;
+		text-decoration:none;
+		
+	}
+
+
+	.admin_kursL_kurs{
+		background-color:#002400;
+		padding: 0% 1% 0% 1%;
+	}
+
+
+	.admin_loginbox{
+		margin-left:10%;
+		margin-right:10%;
+		width:80%;
+		height: 33.333em;
+		display:grid;
+		align-content:center;
+
+	}
+
+	.admin_loginbox_element{
+		text-align:center;
+		margin-left:20%;
+		margin-right:20%;
+		margin-top:1%;
+
+	}
+
+	.admin_input{
+		background-color:black;
+		color:#15ff15;
+		border:1px solid green;
+        height:40px;
+        font-size: 1.188rem;
+	}
+
+
+	.admin_button{
+		background-color:green;
+		border:none;
+		color:black;
+        height:3.333em;
+        font-size: 1.188rem;
+    }
+    
+    .box-bg{
+        margin-left:5%; 
+        margin-top:3%; 
+        margin-right: 5%; 
+        border: 1px solid green; 
+        padding: 5% 5% 5% 5%;
+    }
+
+    .admin-wrapper{
+        margin-left:5%; 
+        margin-top:3%; 
+        margin-right: 5%; 
+        border: 1px solid green; 
+        padding: 5% 5% 5% 5%;
+    }
+
+    .p-admin{
+        color:#73f573;
+        font-size: 1.188rem;
+    }
+
+    .p-admin-bg{
+        text-align:right;
+        font-size: 1.188rem;
+    }
+
+
   /******************************************************************************************************************************************************************************
                                                                        Grid Style
 *******************************************************************************************************************************************************************************/
@@ -1099,7 +1198,7 @@ mark {
         /* margin-left: 2em; */
     }
 
-    .col-1, .col-2, .column-1, .column-9, .column-8, .col-69, .col-420, .col-21{
+    .col-1, .col-2, .column-1, .column-9, .column-8, .col-69, .col-420, .col-21, .admin_body{
         width: 100%;
     }
 
