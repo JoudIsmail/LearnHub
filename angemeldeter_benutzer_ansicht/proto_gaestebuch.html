@@ -1,49 +1,47 @@
 <!DOCTYPE html>
 <html lang="de">
-	<head>
-		<link rel="stylesheet" type="text/css" href="../css/style.css"> 
-		<link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Poppins'>
-		<meta charset="UTF-8" name="description" content="Informationen über die Creator" name="viewport" content="width=device-width, initial-scale=1">
-		<title> Gästebuch - Learnhub </title>
-		<style>
-			img	{
-				height:50%;
-				width:15%;
-				margin-top:5%;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="topnav">
-		  <a href="proto_about-us.html">About us</a>
-		  <a href="proto_shopansicht.html">Shop</a>
-		  <a href="proto_erstellte_kurse.html">erstellte Kurse</a>
-		  <a href="proto_gekaufte_kurse.html">gekaufte Kurse</a>
-		  <a class="active" href="proto_gaestebuch.html">Gästebuch</a>
-		  <a href="#logout">logout</a>
-		  <a href="#darkmode">darkmode on/off</a>
-		  <img style="height:5%; width:5%; margin-top:2px" alt="Logo der Internetseite. In schwarz geschrieben: Learnhub. Das hub in Learnhub steht vor orangenem Hintergrund." src="../bilder/learnhublogo.png">
-		</div>
-	
-		<div>
-			<h1 style="margin-left:13%; margin-top:3%"> Bewerten Sie unsere Seite </h1>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="../css/style3.css">
+	<link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Poppins'>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	<link rel="shortcut icon" href="#"/>
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta charset="UTF-8" name="description" content="Informationen über die Creator" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+	<title> Gästebuch - Learnhub </title>
+</head>
+
+<body>
+	<div class="fullscreen">
+		<nav>
+			<div class="container">
+				<img class="logo" src="../bilder/learnhublogo.png">
+				<a href="proto_about-us.html">About us</a>
+				<a href="proto_shopansicht.html">Shop</a>
+				<a href="proto_erstellte_kurse.html">erstellte Kurse</a>
+				<a href="proto_gekaufte_kurse.html">gekaufte Kurse</a>
+				<a class="active" href="proto_gaestebuch.html">Gästebuch</a>
+				<a href="#logout">logout</a>
+			</div>
+		</nav>
+		<div class="bewertung-holder">
+			<h1 class="h1bewertung"> Bewerten Sie unsere Dienstleistungen </h1>
 		</div>
 
-		<a id="zeige_kommentar_ersteller" href="#" style="margin-left:13%; color:black;" onClick='(function(){
+		<a class="kerstellung" id="zeige_kommentar_ersteller" href="#" onClick='(function(){
 			document.getElementById("zeige_kommentar_ersteller").style.visibility = "hidden";
 			document.getElementById("kommentar_ersteller").style.visibility = "visible";
-		})(); return false;'>Neue Bewertung schreiben</a>
-		<div id="kommentar_ersteller" style="margin-left:13%; margin-right:13%; visibility:hidden">
+		})(); return false;'>Neuen Eintrag verfassen</a>
+		<div class="kommentarersteller" id="kommentar_ersteller">
 			<form>
-				<input placeholder="Titel"/><br>
-				<textarea placeholder="Kommentar" style="width:100%; height: 100px"></textarea><br>
-				<input placeholder="Name"/><br>
-				<input type="submit" value="Senden"/>
+				<input placeholder="Titel" /><br>
+				<textarea class="comment" placeholder="Kommentar"></textarea><br>
+				<input placeholder="Name" /><br>
+				<input type="submit" value="Senden" />
 			</form>
 		</div>
-		
-		<div style="margin-left:13%; margin-right:13%">
-			<div class="kommentar_box_GB" >
+		<div class="comment-container">
+			<div class="kommentar_box_GB">
 				<h3>Ganz ok</h3>
 				<p class="kommentar_text_GB">Hätte mir einige weitere Funktionen gewünscht</p>
 				<p class="kommentar_info_GB">Von Manuel Bauer</p>
@@ -52,7 +50,8 @@
 			<hr class="kommentar_seperator_GB">
 			<div class="kommentar_box_GB">
 				<h3>Unglaublich gut</h3>
-				<p class="kommentar_text_GB">Lernen ging nie einfacher!<p>
+				<p class="kommentar_text_GB">Lernen ging nie einfacher!
+				<p>
 
 				<p class="kommentar_info_GB">Von Sabine Uhrmacher</p>
 				<p class="kommentar_info_GB">13. September 2020, 18:17</p>
@@ -60,24 +59,60 @@
 			<hr class="kommentar_seperator_GB">
 			<div class="kommentar_box_GB">
 				<h3>Unverschämtheit</h3>
-				<p class="kommentar_text_GB">Ich will mein Geld zurück, aber zackig!!!<p>
+				<p class="kommentar_text_GB">Ich will mein Geld zurück, aber zackig!!!
+				<p>
 
 				<p class="kommentar_info_GB">Von Basti91</p>
 				<p class="kommentar_info_GB">22. Juli 2020, 10:03</p>
 			</div>
 			<hr class="kommentar_seperator_GB">
-
 		</div>
-
 		<div class="pagination_GB">
 			<a href="#">&laquo;</a>
 			<a href="#" class="active">1</a>
-			<a href="#" >2</a>
-			<a href="#" >3</a>
+			<a href="#">2</a>
+			<a href="#">3</a>
 			<a href="#">&raquo;</a>
-
 		</div>
-		
-		
-	</body>
+		<footer class="footer-distributed">
+
+			<div class="footer-left">
+				<img src="../bilder/learnhublogo.png">
+				<h3>About<span class="learn">Learn</span><span class="hub"><mark>hub</mark></span></h3>
+
+				<p class="footer-company-name">© 2020 E-Learning Platform. Ltd.</p>
+			</div>
+
+			<div class="footer-center">
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>Hochschule</span>
+						Trier</p>
+				</div>
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="ismailj@hochschule-trier.de">ismailj@hochschule-trier.de</a></p>
+					<!-- <i class="fa fa-envelope"></i>
+					<p><a href="mxtr0669@hochschule-trier.de">mxtr0669@hochschule-trier.de</a></p>
+					<i class="fa fa-envelope"></i>
+					<p><a href="fachriw@hochschule-trier.de">fachriw@hochschule-trier.de</a></p> -->
+				</div>
+			</div>
+			<div class="footer-right">
+				<p class="footer-company-about">
+					<span>About the company</span>
+					We offer training and skill building courses across Technology, Design, Management, Science and
+					Humanities.</p>
+				<div class="footer-icons">
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-instagram"></i></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>
+					<a href="#"><i class="fa fa-youtube"></i></a>
+				</div>
+			</div>
+		</footer>
+	</div>
+</body>
+
 </html>
