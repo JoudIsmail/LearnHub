@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<link rel="stylesheet" type="text/css" href="../css/style3.css">
+	    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Poppins'>
+	    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	    <link rel="shortcut icon" href="#"/>
+	    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	    <meta charset="UTF-8">
+		<title> Kurs erstellen - Learnhub </title>
+	</head>
+	<body>
+		<div class="fullscreen">
+			<nav>
+				<div class="container">
+					<img class="logo" alt="Logo der Internetseite. In schwarz geschrieben: Learnhub. Das hub in Learnhub steht vor orangenem Hintergrund." src="../bilder/learnhublogo.png">
+					<a title="hier finden sie nützliche Informationen über unsere Organisation" href="proto_about-us.html">About us</a>
+					<a title="hier können sie zum Shop gelangen" href="proto_shopansicht.html">Shop</a>
+					<a title="hier finden sie ihre erstellten Kurse" class="active" href="proto_erstellte_kurse.html">erstellte Kurse</a>
+					<a title="hier finden sie ihre gekauften Kurse" href="proto_gekaufte_kurse.html">gekaufte Kurse</a>
+                    <a title="hier gelangen sie zum Gästebuch in dem User Bewertungen für die Seite hinterlassen können" href="proto_gaestebuch.html">Gästebuch</a>
+                    <a class="a-abc" href="#"><img class="img-abc" src="../bilder/abc.png" alt=""></a>
+					<a title="hier können sie sich ausloggen" href="#logout">logout</a>
+				</div>
+            </nav>
+            <div class="col-wrapper">
+            <div class="column2 column-bg column-1">
+                <h1>Neuen Kurs erstellen
+                    <input type="submit" class="btn" value="Erstellen">
+                  </h1>
+                    <p>Titel des Kurses:</p>
+                    <input class="input-bg" value="">
+                    <p class="pkurz">Kurzbeschreibung (Wird auf der Startseite angezeigt):</p>
+					<textarea class="txtarea"></textarea>
+    
+					<p class="plernen">Was kann man in diesem Kurs lernen?</p>
+					<textarea class="txtarea"></textarea>
+	
+	
+					<p class="pgoal">Für wen ist dieser Kurs geeignet?</p>
+					<textarea class="txtarea" >
+					</textarea>
+    	
+	
+			<br>
+			<br>
+			<fieldset>
+				<legend> Zur Person, Kontaktmöglichkeiten </legend>
+				<div class="kurststeller-holder">
+					<div class="kurssteller column-1">
+						<p>Name des Kurserstellers:</p>
+						<input class="input-bg input-1" value=""/>
+						<br>
+						<p>Kontaktmöglichkeiten:</p>
+						<textarea class="txtarea"></textarea>
+
+					</div>
+					<div class="uploaded-img-wrapper column-2">
+						<p class="p-bg">Bild des Kurserstellers:</p>
+						<img alt="Platzhalter für ein Bild für den Kurs" class="uploaded-img" src="../bilder/noimage.png"><br>
+						<input class="input-img" type="file">
+					</div>
+
+
+					<div class="place-holder">
+					</div>
+				</div>
+
+			</fieldset>
+			<br>
+				<fieldset id="barrierefreiheit_fieldset">
+					<legend> Barrierefreiheit </legend>
+
+					<p class="p-learn">Ist dieser Kurs für Sehbehinderte geeignet? <i class="fa fa-info-circle" title="Dies ist beispielsweise der Fall, wenn visuelle Medien ausreichend per Text (für Screenreader) oder Stimme beschrieben werden."></i></p>
+					<input type="radio" id="sehbehinderteJa" name="sehbehinderte">
+					<label for="sehbehinderteJa"> Ja </label>
+					<input type="radio" id="sehbehinderteNein" name="sehbehinderte">
+					<label for="sehbehinderteNein"> Nein </label>
+
+					<p class="p-learn">Ist dieser Kurs für Hörbehinderte geeignet? <i class="fa fa-info-circle" title="Dies ist beispielsweise der Fall, wenn begleitend zu Audiomaterial (etwa in Videos) inhaltich ausreichender Text verfügbar ist."></i></p>
+					<input type="radio" id="hörbehindeteJa" name="hörbehinderte">
+					<label for="hörbehindeteJa"> Ja </label>
+					<input type="radio" id="hörbehinderteNein" name="hörbehinderte">
+					<label for="hörbehinderteNein"> Nein </label>
+
+
+					<p class="p-learn">Beschreibung des Kursbildes für Benutzer mit Screenreadern:</p>
+					<input class="input-bg" >
+
+
+				</fieldset>
+
+                </div>
+                <div class="column2 column-bg column-4 col-bg-3">
+                    <div class="upload-container">
+                        <div class="upload-wrapper">
+                                <p class="pupload-img">Bild hochladen</p>
+                            <img class="upload-img" alt="Platzhalter für ein Bild vom Kursersteller" src="../bilder/noimage.png">
+                        </div>
+                        <p id="preisdisplay"> <strong class="price"> Preis: 89,99€ </strong></p>
+                        <p> Euro: <input onchange="euroChanged()" id="europicker" class="u-currency currency" type="number" min="1" step="any" value="89" /></p>
+                        <p> Cent: <input onchange="centChanged()" id="centpicker" class="c-currency currency" type="number" min="1" max="99" step="any" value="99"/></p>
+                        <!-- <script>
+        
+                            function updatePreis(preistext)
+                            {
+                                document.getElementById("preisdisplay").innerText  = preistext
+                            }
+        
+                            function euroChanged()
+                            {
+                                updatePreis("Preis: " + document.getElementById("europicker").value + "," + document.getElementById("centpicker").value + "€");
+                            }
+        
+                            function centChanged()
+                            {
+                                updatePreis("Preis: " + document.getElementById("europicker").value + "," + document.getElementById("centpicker").value + "€");
+                            }
+        
+                            
+                        </script> -->
+        
+                        <br>
+                        <p>Was ist in diesem Kurs enthalten?</p>
+                        <textarea class="txtarea" ></textarea>
+                    </div> 
+                </div>
+            </div>
+            <footer class="footer-distributed">
+
+                <div class="footer-left">
+                    <img alt="Logo der Internetseite. In schwarz geschrieben: Learnhub. Das hub in Learnhub steht vor orangenem Hintergrund." src="../bilder/learnhublogo.png">
+                    <h3>About<span class="learn">Learn</span><span class="hub"><mark>hub</mark></span></h3>
+    
+                    <p class="footer-company-name">© 2020 E-Learning Platform. Ltd.</p>
+                </div>
+    
+                <div class="footer-center">
+                    <div>
+                        <i class="fa fa-map-marker"></i>
+                        <p><span>Hochschule</span>
+                            Trier</p>
+                    </div>
+                    <div>
+                        <i class="fa fa-envelope"></i>
+                        <p><a href="ismailj@hochschule-trier.de">ismailj@hochschule-trier.de</a></p>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <p class="footer-company-about">
+                        <span>About the company</span>
+					Wir bieten Schulungen und Kurse zum Aufbau von Fähigkeiten in den Bereichen Technologie, Design, Management, Wissenschaft und Wissenschaft an
+					Geisteswissenschaften.</p>
+                    <div class="footer-icons">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                        <a href="#"><i class="fa fa-youtube"></i></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        </body>
+        </html>
