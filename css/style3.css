@@ -289,6 +289,11 @@ img{
     font-size: 1.125rem;
 }
 
+.p-420{
+    font-size: 1.25rem;
+    text-decoration: none;
+    color:inherit;
+}
 
 .col-6{
     width: 50%;
