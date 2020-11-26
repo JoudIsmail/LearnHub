@@ -232,6 +232,7 @@ img{
 .col-420{
     width: 20%;
     padding: 1em;
+
 }
 
 .main-container{
@@ -290,7 +291,7 @@ img{
 }
 
 .p-420{
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     text-decoration: none;
     color:inherit;
 }
