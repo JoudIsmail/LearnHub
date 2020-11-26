@@ -603,6 +603,7 @@ img{
   }
 
   .btn {
+    font-size: 1.125rem;
     width: 100%;
     max-width: 300px;
     min-width: 160px;
@@ -618,7 +619,6 @@ img{
     padding: 10px;
     color: #fff;
     font-family: 'Roboto', sans-serif;
-    font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 2.5px;
     font-weight: 500;
@@ -638,6 +638,7 @@ img{
   }
 
   .btn-purchase{
+      font-size: 1.125rem;
       width: 100%;
       max-width: 300px;
       min-width: 160px;
@@ -651,7 +652,6 @@ img{
       padding: 10px;
       color: #fff;
       font-family: 'Roboto', sans-serif;
-      font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 2.5px;
       font-weight: 500;
