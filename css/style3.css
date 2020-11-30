@@ -966,6 +966,7 @@ nav a.active {
     .img-abc{
         border-radius: 50%;
         margin-bottom: 4em;
+	width: 2em;
     }
 
 
