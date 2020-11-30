@@ -958,8 +958,9 @@ nav a.active {
 
 .a-abc{
         /* padding: 6em; */
-        width: 4em;
-        height: 4em;
+        width: 5em;
+        height: 5em;
+        margin-left: 12em;
     }
 
     .img-abc{
@@ -1164,6 +1165,27 @@ mark {
 /* End of Navbar */
 
 /*about us*/
+
+@media screen and (max-width:1615px){
+    .a-abc{
+        /* padding: 6em; */
+        width: 4em;
+        height: 4em;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width:1450px){
+    .a-abc{
+        /* padding: 6em; */
+        width: 5em;
+        height: 5em;
+        margin-left: 0;
+    }
+}
+
+
+
 @media screen and (max-width:1200px){
     .columns{
         flex-direction: column;
@@ -1266,6 +1288,12 @@ mark {
         width: 100%;
         margin: 0;
         padding: 1em;
+    }
+
+    .a-abc{
+        margin: 0;
+        width: 4em;
+        height: 4em;
     }
 
 }
