@@ -1,0 +1,9 @@
+
+Die erste Abgabe enthält folgende Seiten:
+	
+	- Shopansicht		(proto_shopansicht.html)
+	- Ansicht zur Erstellung eines Kurses		(proto_kurserstell.html)
+	- Kursansicht (proto_kursansicht_nichtteilnehmender-Benutzer.html)
+	- Über uns (proto_about-us.html)
+
+Die Seiten befinden sich jeweils im Ordner "html".
