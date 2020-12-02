@@ -1,97 +1,128 @@
 <!DOCTYPE html>
 <html lang="de">
 	<head>
-		<link rel="stylesheet" type="text/css" href="../css/style.css"> 
-		<link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Poppins'>
-		<meta charset="UTF-8" name="description" content="Informationen über die Creator" name="viewport" content="width=device-width, initial-scale=1">
-		<title> Shop - Learnhub</title>
-		<style>
-			input[type=submit]{
-				vertical-align: top;
-				margin-top:0%;
-				width:50%;
-				font-weight:bold;
-				display:inline-block;
-			}
-			img	{
-				height:50%;
-				width:15%;
-				margin-top:5%;
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="../css/style3.css">
+	    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Poppins'>
+	    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	    <link rel="shortcut icon" href="#"/>
+	    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	    <meta charset="UTF-8">
+		<title> Shop - Learnhub </title>
 	</head>
 	<body>
-		<div class="topnav">
-		  <a href="proto_about-us.html">About us</a>
-		  <a class="active" href="proto_shopansicht.html">Shop</a>
-		  <a href="proto_gaestebuch.html">Gästebuch</a>
-		  <a href="proto_login_gast.html">Anmelden</a>
-		  <a href="proto_registration_gast.html">Registrieren</a>
-		  <a href="#darkmode">darkmode on/off</a>
-		  <img style="height:5%; width:5%; margin-top:2px" alt="Logo der Internetseite. In schwarz geschrieben: Learnhub. Das hub in Learnhub steht vor orangenem Hintergrund." src="../bilder/learnhublogo.png">
-		</div>
+		<div class="fullscreen">
+			<nav>
+            <div class="container">
+                <img class="logo" alt="Logo der Internetseite. In schwarz geschrieben: Learnhub. Das hub in Learnhub steht vor orangenem Hintergrund." src="../bilder/learnhublogo.png">
+                <a title="hier finden sie nützliche Informationen über unsere Organisation"  href="proto_about-us.html">Über uns</a>
+                <a title="hier können sie zum Shop gelangen" class="active" href="proto_shopansicht.html">Shop</a>
+                <a title="hier können Sie sich registrieren, um sich dann anmelden zu können" href="proto_registration_gast.html">registrieren</a>
+                <a title="hier können Sie sich mit Ihren Benutzerdaten anmelden" href="proto_login_gast.html">anmelden</a>
+                <a title="hier gelangen sie zum Gästebuch in dem User Bewertungen für die Seite hinterlassen können" href="proto_gaestebuch.html">Gästebuch</a>
+                <a class="a-abc" href="#"><img class="img-abc" src="../bilder/abc.png" alt="" title="Font für Legastheniker benutzen"></a>
+            </div>
+        </nav>
+            <div class="search-bar">
+				<h1>Hier finden Sie angebotene Kurse </h1>
+					<input class="search-input" placeholder="Suche nach Begriff...">
+					<noscript>
+						<p class="nojavascriptmsg">Suchfunktion nur mit Javascript möglich!</p>
+					</noscript>
+			</div>
+                <div class="columns column-66">
+                    <div class="col-21">
+                        <a class="kurs_link_EK" href="proto_kursansicht_gast.html">
+                            <img class="kurs_box_EK" alt="Kursbild zum Kurs Java 101: Das Sprungbrett für Einsteiger." src="../bilder/python.png"></a>
+                    </div>
+                    <div class="col-69">
+                            <a class="p-420" href="proto_kursansicht_gast.html"> <h3> <strong> <u> Java 101: Das Sprungbrett für Einsteiger </u> </strong> </h3> 
+                                                    Java ist eine besondere Programmiersprache, die sich an <br> 
+                                                    der Syntax der Programmiersprachen C und C++ anlehnt. Bei der <br> 
+                                                    Entwicklung von Java wurde von Beginn an genauestens darauf <br> 
+                                                    geachtet, dass bestimmte schwere Programmierfehler erst gar nicht <br>
+                                                    auftreten können.</a>
+                    </div>
+                    <div class="col-420"><p class="p-bg">
+                        Ersteller: Prof. Dr. Simon Steinmetz <br>
+                                                Preis: 89,99€</p><br>
+                                                <input type="submit" class="btn-purchase" value="Kurs kaufen">
+                    </div>
+                </div>
+                <div class="columns column-66">
+                    <div class="col-21">
+                        <a class="kurs_link_EK" href="proto_kursansicht_gast.html">
+                            <img class="kurs_box_EK" alt="Kursbild zum Kurs Python Bootcamp: Vom Anfäner zum Profi, un nur 2 Monaten." src="../bilder/java.png"></a>
+                    </div>
+                    <div class="col-69">
+                            <a class="p-420" href="proto_kursansicht_gast.html"> <h3> <strong> <u>  Python Bootcamp: Vom Anfänger zum Profi,in nur 2 Monaten. </u> </strong> </h3> 
+                                                    Die Syntax der Sprache ist sehr einfach und leicht zu verstehen <br> 
+                                                    und die Länge des Codes ist relativ kurz. Es macht meist auch für <br> 
+                                                    Anfänger viel Spaß, sich mit Python zu beschäftigen, weil du dich ganz <br> 
+                                                    auf die Lösung des Problems konzentrieren kannst, statt dich mit Besonderheiten
+                                                    der Sprache herumzuschlagen.</a>
+                    </div>
+                    <div class="col-420"><p class="p-bg">
+                        Ersteller: Prof. Dr. Leo Mathys <br>
+                                                Preis: 119,99€</p><br>
+                                                <input type="submit" class="btn-purchase" value="Kurs kaufen">
+                    </div>
+                </div>
+                <div class="columns column-66">
+                    <div class="col-21">
+                        <a class="kurs_link_EK" href="proto_kursansicht_gast.html">
+                            <img class="kurs_box_EK" alt="Kursbild zum Kurs Einstieg in die Technologien des WWW." src="../bilder/web-entwicklung.png"></a>
+                    </div>
+                    <div class="col-69">
+                         <a class="p-420" href="proto_kursansicht_gast.html"> <h3> <strong> <u> Einstieg in die Technologien des WWW </u> </strong> </h3> 
+                                                    Seit der Kommerzialisierung des Internets Anfang der 1990er Jahre <br>
+                                                    unterliegt die Webentwicklung einem ständigen Wandel. Waren Internetseiten 
+                                                    früher als Ansammlungen schmuckloser Textfelder <br> angelegt, steht heute eine 
+                                                    aufwendige Präsentation multimedialer <br> Inhalte im Vordergrund.</a>
+                    </div>
+                    <div class="col-420"><p class="p-bg">
+                        Ersteller: Prof. Dr. Nicolas Arend <br>
+                                                Preis: 499,99€</p><br>
+                                                <input type="submit" class="btn-purchase" value="Kurs kaufen">
+                    </div>
+                </div>
+			<footer class="footer-distributed">
+
+				<div class="footer-left">
+					<img alt="Logo der Internetseite. In schwarz geschrieben: Learnhub. Das hub in Learnhub steht vor orangenem Hintergrund." src="../bilder/learnhublogo.png">
+					<h3>About<span class="learn">Learn</span><span class="hub"><mark>hub</mark></span></h3>
 	
-		<div>
-			<h1 style="margin-left:13%; margin-top:3%"> Hier finden Sie angebotene Kurse </h1>
+					<p class="footer-company-name">© 2020 E-Learning Platform. Ltd.</p>
+				</div>
+	
+				<div class="footer-center">
+					<div>
+						<i class="fa fa-map-marker"></i>
+						<p><span>Hochschule</span>
+							Trier</p>
+					</div>
+					<div>
+						<i class="fa fa-envelope"></i>
+						<p><a href="ismailj@hochschule-trier.de">ismailj@hochschule-trier.de</a></p>
+						<!-- <i class="fa fa-envelope"></i>
+						<p><a href="mxtr0669@hochschule-trier.de">mxtr0669@hochschule-trier.de</a></p>
+						<i class="fa fa-envelope"></i>
+						<p><a href="fachriw@hochschule-trier.de">fachriw@hochschule-trier.de</a></p> -->
+					</div>
+				</div>
+				<div class="footer-right">
+					<p class="footer-company-about">
+						<span>Über das Unternehmen</span>
+					Wir bieten Schulungen und Kurse zum Aufbau von Fähigkeiten in den Bereichen Technologie, Design, Business und Wissenschaft an
+					</p>
+					<div class="footer-icons">
+						<a href="#"><i class="fa fa-facebook"></i></a>
+						<a href="#"><i class="fa fa-twitter"></i></a>
+						<a href="#"><i class="fa fa-instagram"></i></a>
+						<a href="#"><i class="fa fa-linkedin"></i></a>
+						<a href="#"><i class="fa fa-youtube"></i></a>
+					</div>
+				</div>
+			</footer>
 		</div>
-		
-		<div style="margin-top:2%">
-			<div class="suchbar">
-				<input placeholder="Suche nach Begriff...">
-				<noscript>
-					<p class="nojavascriptmsg">Suchfunktion nur mit Javascript möglich!</p>
-				</noscript>
-
-			</div>
-
-			<a class="kurs_link_EK" href="proto_kursansicht_gast.html">
-				<img class="kurs_box_EK" alt="Kursbild zum Kurs Java 101: Das Sprungbrett für Einsteiger. <Beschreibung>." src="../bilder/python.png">
-				<p class="kurs_beschreibung_EK"> <strong> <u> Java 101: Das Sprungbrett für Einsteiger</u></strong> </br>
-									Java ist eine besondere Programmiersprache, die sich an </br> 
-									der Syntax der Programmiersprachen C und C++ anlehnt. Bei der </br> 
-									Entwicklung von Java wurde von Beginn an genauestens darauf </br> 
-									geachtet, dass bestimmte schwere Programmierfehler erst gar nicht </br>
-									auftreten können. 
-
-			</a>
-			<div class="kurs_preis_ersteller_EK"> Ersteller: Prof. Dr. Simon Steinmetz </br>
-											Preis: 89,99€
-				<form style="display:inline-block; width:60%" action="proto_login_gast.html"> <input type="submit" value="Kurs kaufen"> </form>
-			</div>
-		</div>
-		
-		<div style="margin-top:4%">
-
-			<a class="kurs_link_EK" href="proto_kursansicht_gast.html">
-				<img class="kurs_box_EK" alt="Kursbild zum Kurs Python Bootcamp: Vom Anfäner zum Profi, un nur 2 Monaten. <Beschreibung>." src="../bilder/java.png">
-				<p class="kurs_beschreibung_EK"> <strong> <u> Python Bootcamp: Vom Anfänger zum Profi,in nur 2 Monaten.</u></strong> </br>
-										Die Syntax der Sprache ist sehr einfach und leicht zu verstehen </br> 
-										und die Länge des Codes ist relativ kurz. Es macht meist auch für </br> 
-										Anfänger viel Spaß, sich mit Python zu beschäftigen, weil du dich ganz </br> 
-										auf die Lösung des Problems konzentrieren kannst, statt dich mit Besonderheiten
-										der Sprache herumzuschlagen.</p>
-			</a>
-			<div class="kurs_preis_ersteller_EK"> Ersteller: Prof. Dr. Leo Mathys </br>
-											Preis: 119,99€
-				<form style="display:inline-block; width:60%" action="proto_login_gast.html"> <input type="submit" value="Kurs kaufen"> </form>
-			</div>
-		</div>
-
-		<div style="margin-top:4%; margin-bottom:5%">
-			<a class="kurs_link_EK" href="proto_kursansicht_gast.html">
-				<img class="kurs_box_EK" alt="Kursbild zum Kurs Einstieg in die Technologien des WWW. <Beschreibung>." src="../bilder/web-entwicklung.png">
-				<p class="kurs_beschreibung_EK"> <strong> <u> Einstieg in die Technologien des WWW</u></strong> </br>
-										Seit der Kommerzialisierung des Internets Anfang der 1990er Jahre </br>
-										unterliegt die Webentwicklung einem ständigen Wandel. Waren Internetseiten 
-										früher als Ansammlungen schmuckloser Textfelder </br> angelegt, steht heute eine 
-										aufwendige Präsentation multimedialer </br> Inhalte im Vordergrund.</p>
-			</a>
-			<div class="kurs_preis_ersteller_EK"> Ersteller: Prof. Dr. Nicolas Arend </br>
-											Preis: 499,99€
-				<form style="display:inline-block; width:60%" action="proto_login_gast.html"> <input type="submit" value="Kurs kaufen"> </form>
-			</div>
-		</div>
-		
-		
 	</body>
 </html>
