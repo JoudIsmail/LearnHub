@@ -29,16 +29,16 @@
                     <input type="submit" class="btn" value="Erstellen">
                   </h1>
                     <p>Titel des Kurses:</p>
-                    <input class="input-bg" value="">
+                    <input name="title" class="input-bg" value="">
                     <p class="pkurz">Kurzbeschreibung (Wird auf der Startseite angezeigt):</p>
-					<textarea class="txtarea"></textarea>
+					<textarea name="summary" class="txtarea"></textarea>
     
 					<p class="plernen">Was kann man in diesem Kurs lernen?</p>
-					<textarea class="txtarea"></textarea>
+					<textarea name="educationalContent" class="txtarea"></textarea>
 	
 	
 					<p class="pgoal">Für wen ist dieser Kurs geeignet?</p>
-					<textarea class="txtarea" >
+					<textarea name="suitableFor" class="txtarea" >
 					</textarea>
     	
 	
@@ -49,16 +49,16 @@
 				<div class="kurststeller-holder">
 					<div class="kurssteller column-1">
 						<p>Name des Kurserstellers:</p>
-						<input class="input-bg input-1" value=""/>
+						<input name="instructorName" class="input-bg input-1" value=""/>
 						<br>
 						<p>Kontaktmöglichkeiten:</p>
-						<textarea class="txtarea"></textarea>
+						<textarea name="instructorContact" class="txtarea"></textarea>
 
 					</div>
 					<div class="uploaded-img-wrapper column-2">
 						<p class="p-bg">Bild des Kurserstellers:</p>
 						<img alt="Platzhalter für ein Bild für den Kurs" class="uploaded-img" src="../bilder/noimage.png"><br>
-						<input class="input-img" type="file">
+						<input name="instructorImage" class="input-img" type="file">
 					</div>
 
 
@@ -122,7 +122,7 @@
         
                         <br>
                         <p>Was ist in diesem Kurs enthalten?</p>
-                        <textarea class="txtarea" ></textarea>
+                        <textarea name="materialContent" class="txtarea" ></textarea>
                     </div> 
                 </div>
             </div>
