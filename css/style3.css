@@ -997,11 +997,15 @@ nav a.active {
     display: block;
     text-align: center;
 }
+
+.outer{
+    width: 100%;
+}
 .box{
-	position:absolute;
-	left:50%;
-	top:50%;
-	transform: translate(-50%,-50%);
+    display: table;
+    margin: 0 auto;
+    margin-top: 10em;
+    margin-bottom: 10em;
     background-color: rgba(0, 0, 0, 0.89);
     opacity: 0.9;
 	border-radius:3px;
