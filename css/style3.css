@@ -780,6 +780,12 @@ img{
     }
 
 
+
+
+
+    
+
+
   /******************************************************************************************************************************************************************************
                                                                        Grid Style
 *******************************************************************************************************************************************************************************/
@@ -967,6 +973,130 @@ nav a.active {
         border-radius: 50%;
         margin-bottom: 4em;
     }
+
+
+
+
+    /************************************************TEST*****************************************************************/
+    @import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&subset=greek-ext');
+
+.fullscreen-bg{
+    background-image: url(../bilder/scott-graham-5fNmWej4tAA-unsplash.jpg);
+	background-position: center;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+	min-height:100vh;
+	font-family: 'Noto Sans', sans-serif;
+}
+.text-center{
+	color:#fff;	
+	text-transform:uppercase;
+    font-size: 23px;
+    margin: -50px 0 80px 0;
+    display: block;
+    text-align: center;
+}
+.box{
+	position:absolute;
+	left:50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.89);
+    opacity: 0.9;
+	border-radius:3px;
+	padding:70px 100px;
+}
+.input-container{
+	position:relative;
+	margin-bottom:25px;
+}
+.input-container label{
+	position:absolute;
+	top:0px;
+	left:0px;
+	font-size:16px;
+	color:#fff;	
+	transition: all 0.5s ease-in-out;
+}
+.input-container input{ 
+  border:0;
+  border-bottom:1px solid #555;  
+  background:transparent;
+  width:100%;
+  padding:8px 0 5px 0;
+  font-size:16px;
+  color:#fff;
+}
+.input-container input:focus{ 
+ border:none;	
+ outline:none;
+ border-bottom:1px solid #e74c3c;	
+}
+/* .btn{
+	color:#fff;
+	background-color:#e74c3c;
+	outline: none;
+    border: 0;
+    color: #fff;
+	padding:10px 20px;
+	text-transform:uppercase;
+	margin-top:50px;
+	border-radius:2px;
+	cursor:pointer;
+	position:relative;
+} */
+/*.btn:after{
+	content:"";
+	position:absolute;
+	background:rgba(0,0,0,0.50);
+	top:0;
+	right:0;
+	width:100%;
+	height:100%;
+}*/
+.input-container input:focus ~ label,
+.input-container input:valid ~ label{
+	top:-12px;
+	font-size:12px;
+	
+}
+
+.btn-01 {
+    font-size: 1.125rem;
+    width: 100%;
+    max-width: 300px;
+    min-width: 160px;
+    backface-visibility: hidden;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    white-space: nowrap;
+    
+    background-color: #e74c3c;
+    /* background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(231,76,60,1) 35%, rgba(0,212,255,1) 100%); */
+    background-image: linear-gradient(to right top, #e74c3c, #e24141, #dc3646, #d62b4b, #cf1f4f, #cf1a52, #ce1356, #ce0c59, #d50b5d, #dc0a61, #e40966, #eb076a);
+
+    padding: 10px;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    border: none;
+    text-align: center;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    outline: none;
+  }
+
+  .btn-01:hover{
+    background-color: rgba(161, 168, 168, 0.4);
+    box-shadow: 0px 15px 20px rgba(161, 168, 168, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+  }
 
 
 
