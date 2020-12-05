@@ -34,11 +34,11 @@
 			document.getElementById("kommentar_ersteller").style.visibility = "visible";
 		})(); return false;'>Neuen Eintrag verfassen</a>
 		<div class="kommentarersteller" id="kommentar_ersteller">
-			<form>
+			<form action="do.php">
 				<input name="title" placeholder="Titel" /><br>
 				<textarea name="comment" class="comment" placeholder="Kommentar"></textarea><br>
 				<input name="name" placeholder="Name" /><br>
-				<input type="submit" value="Senden" />
+				<input name="addEntry" type="submit" value="Senden" />
 			</form>
 		</div>
 		<div class="comment-container">
