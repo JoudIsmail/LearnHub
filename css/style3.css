@@ -155,11 +155,11 @@ p{
 }
 
 /* Navbar*/
-nav {
+/* nav {
     overflow: hidden;
     box-sizing: border-box;
     width: 100%;
-}
+} */
 
 /* nav a {
     float: left;
@@ -174,7 +174,7 @@ nav a:hover {
     background-color: rgb(165, 165, 165);
 } */
 
-.container {
+/* .container {
     padding: 20px 40px;
     margin: 0 auto;
     max-width: 120em;
@@ -183,7 +183,7 @@ nav a:hover {
 
 nav .container {
     display: flex;
-}
+} */
 
 /* nav a.active {
     color: orange;
@@ -871,6 +871,10 @@ img{
     padding-bottom: 0.625em;
 }
 
+.kommentar_info_GB{
+    font-size: 1rem;
+}
+
 /******************************************************
 *   Pagination
 **********************************************************/
@@ -937,7 +941,7 @@ nav a:hover {
 .container {
     padding: 1.6em 3.3em;
     margin: 0 auto;
-    max-width: 1440px;
+    max-width: 1640px;
     width: 90%;
 }
 
@@ -966,9 +970,9 @@ nav a.active {
 
 .a-abc{
         /* padding: 6em; */
-        width: 5em;
-        height: 5em;
-        margin-left: 12em;
+        width: 4.3em;
+        height: 4.3em;
+        margin-left: 11em;
     }
 
     .img-abc{
