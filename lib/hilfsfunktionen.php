@@ -6,17 +6,18 @@
 												1 => "title",
 												2 => "summary",
 												3 => "courseImagePath",
-												4 => "price",
-												5 => "educationalContent",
-												6 => "suitableFor",
-												7 => "materialContent",
-												8 => "instructorName",
-												9 => "instructorContact",
-												10 => "instructorImagePath",
-												11 => "hImpairedSuitability",
-												12 => "vImpairedSuitability",
-												13 => "courseImageAlt",
-												14 => "creatorId",
+												4 => "priceCent",
+												5 => "priceEuro",
+												6 => "educationalContent",
+												7 => "suitableFor",
+												8 => "materialContent",
+												9 => "instructorName",
+												10 => "instructorContact",
+												11 => "instructorImagePath",
+												12 => "hImpairedSuitability",
+												13 => "vImpairedSuitability",
+												14 => "courseImageAlt",
+												15 => "creatorId",
 											);
 
 	$ENTRY_KEYS = array(
@@ -36,8 +37,11 @@
 	$COURSES_PATH = $_SERVER["DOCUMENT_ROOT"] . "/private/data/courses.csv";
 	$ENTRIES_PATH = $_SERVER["DOCUMENT_ROOT"] . "/private/data/entries.csv";
 	$USERS_PATH = $_SERVER["DOCUMENT_ROOT"] . "/private/data/users.csv";
-	$COURSE_IMAGE_PATH = $_SERVER["DOCUMENT_ROOT"] . "/bilder/course-images";
-	$INSTRUCTOR_IMAGE_PATH = $_SERVER["DOCUMENT_ROOT"] . "/bilder/instructor-images";
+	$COURSE_IMAGE_PATH_ABS = $_SERVER["DOCUMENT_ROOT"] . "/bilder/course-images";
+	$INSTRUCTOR_IMAGE_PATH_ABS = $_SERVER["DOCUMENT_ROOT"] . "/bilder/instructor-images";
+	$COURSE_IMAGE_PATH = "/bilder/course-images";
+	$INSTRUCTOR_IMAGE_PATH = "/bilder/instructor-images";
+
 
 													
 
@@ -224,6 +228,29 @@
 		}
 
 	}
+
+	function writeUser($user)
+	{
+		global $USER_KEYS;
+
+		$toWrite = array();
+		foreach($USER_KEYS as $key => $value)
+		{
+			if(!isset($user[$value]))
+			{
+				throw new userFieldEmptyException("");
+			}
+
+			$toWrite[$key] = $user[$value];
+		}
+
+		if(($handle = fopen($GLOBALS["USERS_PATH"], "a")) !== false)
+		{
+			fputcsv($handle, $toWrite);
+		}
+
+	}
+
 
 
 
