@@ -18,6 +18,7 @@
 
 	function generateShopCourses($amount, $offset){
 		$courses = readCoursesFile();
+		$amount = min($amount, sizeof($courses));
 		$subcourses = array_slice($courses, $offset, $amount);
 		if ($amount == $courses){
 			foreach($subcourses as $course){
@@ -49,7 +50,6 @@
 	function generateBoughtCourses(){
 		$courses = readCoursesFile();
 		foreach ($_SESSION["boughtCourses"] as $course){
-			echo "			<div class=\"grid_container_EK\">\n";
 			echo "				<div class=\"grid_element_EK1\">\n";
 			echo "					<a href=\"kurs.php?id=".$course["id"]."\"> <img alt=".$course["courseImageAlt"]." class=\"grid_element_bild_EK\" src=".$course["courseImagePath"]."> </a>\n";
 			echo "					<h3 class=\"grid_element_titel_EK\" >".$course["title"]."</h3>\n";
