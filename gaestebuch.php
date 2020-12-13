@@ -1,6 +1,7 @@
 <?php session_start();
 $page = 'gaestebuch';
 include('../inc/header.php');
+include('../lib/sekundaerfunktionen.php');
 echo "		<div class=\"bewertung-holder\">\n";
 echo "			<h1 class=\"h1bewertung\"> Bewerten Sie unsere Dienstleistungen </h1>\n";
 echo "		</div>\n";
