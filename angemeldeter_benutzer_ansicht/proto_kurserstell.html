@@ -33,14 +33,14 @@
                     <p>Titel des Kurses:</p>
                     <input name="title" class="input-bg" value="">
                     <p class="pkurz">Kurzbeschreibung (Wird auf der Startseite angezeigt):</p>
-					<textarea name="summary" class="txtarea"></textarea>
+					<textarea alt="Kurze sinnvolle Beschreibung für ihren Kurs" name="summary" class="txtarea"></textarea>
     
 					<p class="plernen">Was kann man in diesem Kurs lernen?</p>
-					<textarea name="educationalContent" class="txtarea"></textarea>
+					<textarea alt="Angeben, was man in diesem Kurs lernen kann" name="educationalContent" class="txtarea"></textarea>
 	
 	
 					<p class="pgoal">Für wen ist dieser Kurs geeignet?</p>
-					<textarea name="suitableFor" class="txtarea" >
+					<textarea alt="Angeben, für wen dieser Kurs geeignet ist" name="suitableFor" class="txtarea" >
 					</textarea>
     	
 	
@@ -51,10 +51,10 @@
 				<div class="kurststeller-holder">
 					<div class="kurssteller column-1">
 						<p>Name des Kurserstellers:</p>
-						<input name="instructorName" class="input-bg input-1" value=""/>
+						<input alt="Name des Kurserstellers angeben" name="instructorName" class="input-bg input-1" value=""/>
 						<br>
 						<p>Kontaktmöglichkeiten:</p>
-						<textarea name="instructorContact" class="txtarea"></textarea>
+						<textarea alt="Kontaktmöglichkeiten wie z.B E-mail Adresse angeben" name="instructorContact" class="txtarea"></textarea>
 
 					</div>
 					<div class="uploaded-img-wrapper column-2">
@@ -87,7 +87,7 @@
 
 
 					<p class="p-learn">Beschreibung des Kursbildes für Benutzer mit Screenreadern:</p>
-					<input class="input-bg" >
+					<input alt="Kruze Beschreibung des Kursbildes, für Benutzer mit Screenreadern" class="input-bg" >
 
 
 				</fieldset>
@@ -100,8 +100,8 @@
                             <img class="upload-img" alt="Platzhalter für ein Bild vom Kursersteller" src="../bilder/noimage.png">
                         </div>
                         <p id="preisdisplay"> <strong class="price"> Preis: 89,99€ </strong></p>
-                        <p> Euro: <input onchange="euroChanged()" id="europicker" class="u-currency currency" type="number" min="1" step="any" value="89" /></p>
-                        <p> Cent: <input onchange="centChanged()" id="centpicker" class="c-currency currency" type="number" min="1" max="99" step="any" value="99"/></p>
+                        <p > Euro: <input alt="Kurspreisangabe von Euro" onchange="euroChanged()" id="europicker" class="u-currency currency" type="number" min="1" step="any" value="89" /></p>
+                        <p> Cent: <input alt="Kurspreisangabe von Cent" onchange="centChanged()" id="centpicker" class="c-currency currency" type="number" min="1" max="99" step="any" value="99"/></p>
                         <!-- <script>
         
                             function updatePreis(preistext)
@@ -124,7 +124,7 @@
         
                         <br>
                         <p>Was ist in diesem Kurs enthalten?</p>
-                        <textarea name="materialContent" class="txtarea" ></textarea>
+                        <textarea alt="Hier können sie angeben, was in ihrem Kurs enthalten ist" name="materialContent" class="txtarea" ></textarea>
                     </div> 
                 </div>
             </div>
