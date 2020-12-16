@@ -21,9 +21,9 @@ if((($page == 'registrieren')&&(empty($_SESSION[$user['id']])))||((empty($_SESSI
 echo "		<nav>\n";
 echo "            <div class=\"container\">\n";
 if (!empty($_SESSION[$user['id']])){
-    include('inc/nav.php');
+    include('nav.php');
 }else{
-    include('inc/nav_gast.php');
+    include('nav_gast.php');
 }
 echo "            </div>\n";
 echo "        </nav>\n";
