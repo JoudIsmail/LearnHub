@@ -1,0 +1,21 @@
+<?php session_start(); 
+$page = 'login';
+include('inc/header.php');
+include('do.php');
+echo "            <div class=\"outer\">\n";
+echo "                    <div class=\"box\">\n";
+echo "                        <form action=\"do.php\" method= \"post\" accept-charset= \"UTF-8\">\n";
+echo "                            <h1 class=\"text-center\">Anmelden</h1>\n";
+echo "                        <div class=\"input-container\">\n";
+echo "                            <input name=\"email\" type=\"email\" required=\"\" placeholder=\"E-Mail Addresse\"/>		\n";
+echo "                        </div>\n";
+echo "                        <div class=\"input-container\">\n";
+echo "                            <input name=\"password\" type=\"password\" required=\"\" placeholder=\"Passwort\"/>	\n";
+echo "                        </div>\n";
+echo "                            <button name=\"login\" type=\"submit\" class=\"btn-01\">Anmelden</button>\n";
+echo "                    </form>	\n";
+echo "                    </div>\n";
+echo "            </div>\n";
+echo "            \n";
+include('inc/footer.php');
+ ?>
