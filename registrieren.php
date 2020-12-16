@@ -1,0 +1,23 @@
+<?php session_start(); 
+$page = 'registrieren';
+include('inc/header.php');
+include('do.php');
+echo "            <div class=\"outer\">\n";
+echo "            <div class=\"box\">\n";
+echo "                <form action=\"do.php\" method= \"post\" accept-charset= \"UTF-8\">\n";
+echo "                    <h1 class=\"text-center\">Registrieren</h1>\n";
+echo "                <div class=\"input-container\">\n";
+echo "                    <input name=\"email\" type=\"email\" required=\"\" placeholder=\"E-Mail Addresse\"/>		\n";
+echo "                </div>\n";
+echo "                <div class=\"input-container\">\n";
+echo "                    <input name=\"password\" type=\"password\" required=\"\" placeholder=\"Passwort\"/>\n";
+echo "                </div>\n";
+echo "                <div class=\"input-container\">		\n";
+echo "                    <input name=\"password\" type=\"password\" required=\"\" placeholder=\"Passwort wiederholen\"/>\n";
+echo "                </div>\n";
+echo "                    <button name=\"register\" type=\"button\" class=\"btn-01\">Registrieren</button>\n";
+echo "            </form>	\n";
+echo "            </div> \n";
+echo "        </div>\n";
+include('inc/footer.php');
+?>
