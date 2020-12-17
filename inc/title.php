@@ -22,6 +22,9 @@
         case "gekaufte":
           $title = "Gekaufte Kurse - Learnhub";
           break;
+        case "kurs":
+          $title = "Kurs - Learnhub";
+          break;
       }
  return $title;
 
