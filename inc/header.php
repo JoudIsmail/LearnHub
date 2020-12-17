@@ -15,7 +15,7 @@ echo "	<title> ".$title." </title>\n";
 echo "</head>\n";
 echo "\n";
 echo "<body>\n";
-if((($page == 'registrieren')&&(isset($_SESSION['email'])))||((isset($_SESSION['email']))&&($page == 'login'))){
+if((($page == 'registrieren')&&(!isset($_SESSION['email'])))||((!isset($_SESSION['email']))&&($page == 'login'))){
     echo "	<div class=\"fullscreen fullscreen-bg\">\n";
 }else{
     echo "	<div class=\"fullscreen \">\n";
@@ -31,3 +31,4 @@ echo "            </div>\n";
 echo "        </nav>\n";
 echo "\n";
 ?>
+
