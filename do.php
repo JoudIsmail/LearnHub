@@ -1,8 +1,9 @@
 <?php
+	if (session_status() == PHP_SESSION_NONE) {
+			session_start();
+	}
 
 	require_once 'lib/primaerfunktionen.php';
-
-	session_start();
 	if(isset($_POST["logout"]))
 	{
 		session_destroy();

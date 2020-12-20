@@ -1,4 +1,8 @@
-<?php session_start(); 
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+		session_start();
+}
+
 $page = 'about';
 require_once('inc/header.php');
 echo "        <div class=\"columns columns-bg-1\">\n";
