@@ -1,7 +1,7 @@
 <?php session_start();
 $page = 'gaestebuch';
-include('inc/header.php');
-include('lib/sekundaerfunktionen.php');
+require_once('inc/header.php');
+require_once('lib/sekundaerfunktionen.php');
 echo "		<div class=\"bewertung-holder\">\n";
 echo "			<h1 class=\"h1bewertung\"> Bewerten Sie unsere Dienstleistungen </h1>\n";
 echo "		</div>\n";
@@ -19,7 +19,7 @@ echo "				<input name=\"addEntry\" type=\"submit\" value=\"Senden\" />\n";
 echo "			</form>\n";
 echo "		</div>\n";
 echo "		<div class=\"comment-container\">\n";
-generateEntries(5,0);
+generateEntries();
 echo "		</div>\n";
-include('inc/footer.php');
+require_once('inc/footer.php');
 ?>

@@ -713,6 +713,17 @@ img{
 		
 	}
 
+	.admin_actionbutton{
+		padding:none;
+		border:none;
+		color:black;
+		background-color:green;
+		font-size:1.125rem;
+		font-family:mono;
+		
+	}
+
+
 
 	.admin_kursL_kurs{
 		background-color:#002400;
@@ -859,6 +870,7 @@ img{
 
 .kommentar_text_GB {
     margin-left:1%;
+		font-size:1.125rem;
 }
 
 .kommentar_seperator_GB {
@@ -873,6 +885,8 @@ img{
 
 .kommentar_info_GB{
     font-size: 1rem;
+		font-style:italic;
+		color: #645f5f;
 }
 
 /******************************************************
@@ -1501,5 +1515,14 @@ mark {
     }
 
 }
+
+
+  /*****************************************
+*  nachricht.php
+******************************************/
+
+	a.redirect{
+		font-size:2rem;
+	}
 
 /*****************************************/

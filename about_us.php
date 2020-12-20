@@ -1,6 +1,6 @@
 <?php session_start(); 
 $page = 'about';
-include('inc/header.php');
+require_once('inc/header.php');
 echo "        <div class=\"columns columns-bg-1\">\n";
 echo "            <div class=\"col-1 col-bg col-bg-1\">\n";
 echo "				<h1> Über uns </h1>\n";
@@ -64,5 +64,5 @@ echo "                <img class=\"img-bg\" src=\"bilder/walid.png\" alt=\"Gesic
 echo "                <div class=\"overlay\">Walid Fachri - Senior Project-Manager</div>\n";
 echo "            </div>\n";
 echo "        </div>\n";
-include('inc/footer.php');
+require_once('inc/footer.php');
 ?>

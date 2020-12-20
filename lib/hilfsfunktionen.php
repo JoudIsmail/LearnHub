@@ -1,5 +1,5 @@
 <?php
-	include 'ausnahmen.php';
+	require_once 'ausnahmen.php';
 												
 	$COURSE_KEYS = array(
 												0 => "id",
