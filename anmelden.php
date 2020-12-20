@@ -1,4 +1,8 @@
-<?php session_start(); 
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 $page = 'login';
 require_once('inc/header.php');
 require_once('do.php');

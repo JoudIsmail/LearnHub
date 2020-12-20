@@ -1,4 +1,8 @@
-<?php session_start(); 
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 $page = 'registrieren';
 require_once('lib/sekundaerfunktionen.php');
 require_once('inc/header.php');
