@@ -1,5 +1,5 @@
 <?php
-include('title.php');
+require_once('title.php');
 $title = checkPage($page);
 echo "<DOCTYPE html>\n";
 echo "<html lang=\"de\">\n";
@@ -23,9 +23,9 @@ if((($page == 'registrieren')&&(!isset($_SESSION['email'])))||((!isset($_SESSION
 echo "		<nav>\n";
 echo "            <div class=\"container\">\n";
 if (!empty($_SESSION['email'])){
-    include('nav.php');
+    require_once('nav.php');
 }else{
-    include('nav_gast.php');
+    require_once('nav_gast.php');
 }
 echo "            </div>\n";
 echo "        </nav>\n";

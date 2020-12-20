@@ -25,6 +25,14 @@
         case "kurs":
           $title = "Kurs - Learnhub";
           break;
+        case "bearbeiten":
+          $title = "Kurs bearbeiten - Learnhub";
+          break;
+        case "erstellen":
+          $title = "Neuer Kurs - Learnhub";
+          break;
+
+
       }
  return $title;
 

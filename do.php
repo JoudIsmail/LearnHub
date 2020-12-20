@@ -1,6 +1,6 @@
 <?php
 
-	include 'lib/primaerfunktionen.php';
+	require_once 'lib/primaerfunktionen.php';
 
 	session_start();
 	if(isset($_POST["logout"]))
@@ -17,21 +17,27 @@
 
 		} catch (userDoesntExistException $e)
 		{
-			echo "gibts nich";
+			header("Location: anmelden.php?error=benutzer_nicht_existent");
+			exit;
 
 		} catch (loginFieldEmptyException $e)
 		{
-			echo "leer";
+			header("Location: anmelden.php?error=feld_leer");
+			exit;
 
 		} catch (loginException $e)
 		{
-			echo "falsch";
+			header("Location: anmelden.php?error=falsches_passwort");
+			exit;
 
 		} catch (alreadyLoggedInException $e)
 		{
-			echo "biste schon";
+			header("Location: shop.php");
+			exit;
 
 		}
+
+		header("Location: /nachricht.php?type=angemeldet");
 
 	}
 
@@ -43,42 +49,30 @@
 
 		} catch (alreadyRegisteredException $e)
 		{
-			echo "schon da";
-
+			header("Location: registrieren.php?error=bereits_registriert");
+			exit;
 		} catch (alreadyLoggedInException $e)
 		{
-			echo "biste schon ";
+			header("Location: shop.php");
+			exit;
 
 		} catch (registerFieldEmptyException $e)
 		{
-			echo "leer";
+			header("Location: registrieren.php?error=feld_leer");
+			exit;
 
 		} catch (userFieldEmptyException $e)
 		{
 			echo "programming error";
 		}
+		header("Location: /nachricht.php?type=registriert");
 
 	}
 
 	if(isset($_POST["deleteCourse"]))
 	{
-		try
-		{
-			deleteCourse($_POST["id"]);
-
-		} catch (courseDoesntExistException $e)
-		{
-			echo "gibts nich";
-
-		} catch (courseNotOwnedException $e)
-		{
-			echo "nich deins ";
-
-		} catch (notLoggedInException $e)
-		{
-			echo "nich eingeloggt";
-		}
-
+		deleteCourse($_POST["id"]);
+		header("Location: adminpanel.php");
 
 	}
 
@@ -94,22 +88,28 @@
 
 		} catch (courseNotOwnedException $e)
 		{
-			echo "nich deins ";
+			header("Location: /shop.php");
+			exit;
 
 		} catch (notLoggedInException $e)
 		{
-			echo "nich eingeloggt";
+			header("Location: /anmelden.php");
+			exit;
 
 		} catch (courseDoesntExistException $e)
 		{
-			echo "gibts nich";
+			header("Location: /shop.php");
+			exit;
 		} catch (fileUploadFailedException $e)
 		{
-			echo "datei fail";
+			echo "Dateiupload fehlgeschlagen. Kritischer Fehler.";
+			exit;
 		} catch (courseFieldEmptyException $e)
 		{
-			echo "vergessen einzugeben";
+			header("Location: /kurs_bearbeiten.php?id=".$_POST["id"]."&error=feld_leer");
+			exit;
 		}
+		header("Location: /nachricht.php?type=bearbeitet");
 
 	}
 
@@ -134,6 +134,8 @@
 			echo "vergessen einzugeben";
 		}
 
+		header("Location: /nachricht.php?type=erstellt");
+
 	}
 
 	if(isset($_POST["buyCourse"]))
@@ -148,6 +150,7 @@
 		{
 			echo "schon gekauft";
 		}
+		header("Location: /nachricht.php?type=gekauft");
 	}
 
 	if(isset($_POST["addEntry"]))
@@ -157,8 +160,8 @@
 			addEntry($_POST);
 		} catch (entryFieldEmptyException $e)
 		{
-			echo "nicht ausgefüllt";
 		}
+		header("Location: /gaestebuch.php");
 
 	}
 

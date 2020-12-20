@@ -1,6 +1,6 @@
 <?php
 
-	include 'hilfsfunktionen.php';
+	require_once 'hilfsfunktionen.php';
 
 
 	function login($email, $password)
@@ -71,25 +71,11 @@
 
 	function deleteCourse($courseId)
 	{
-		if (isset($_SESSION["email"]))
-		{
 			$courses = readCoursesFile();
 			$index = findCourseById($courses, $courseId);
 			$course = $courses[$index];
-			if($course["creatorId"] == $_SESSION["id"])
-			{
-				unset($courses[$index]);
-				writeCoursesFile($courses);
-			}
-			else
-			{
-				throw new courseNotOwnedException("");
-			}
-		}
-		else
-		{
-			throw new notLoggedInException("");
-		}
+			unset($courses[$index]);
+			writeCoursesFile($courses);
 	}
 
 
@@ -114,7 +100,12 @@
    					throw new fileUploadFailedException("");
 					}
 					$courses[$index]["courseImagePath"] = $COURSE_IMAGE_PATH . "/" . $course["id"] . ".jpg";
+					$course["courseImagePath"] = $courses[$index]["courseImagePath"];
 				} 
+				else
+				{
+					$course["courseImagePath"] = $courses[$index]["courseImagePath"];
+				}
 
 				if(isset($_FILES['instructorImage']) && $_FILES['instructorImage']['error'] != UPLOAD_ERR_NO_FILE) 
 				{
@@ -124,7 +115,13 @@
    					throw new fileUploadFailedException("");
 					}
 					$courses[$index]["instructorImagePath"] = $INSTRUCTOR_IMAGE_PATH . "/" . $course["id"] . ".jpg";
+					$course["instructorImagePath"] = $courses[$index]["instructorImagePath"];
 				} 
+				else
+				{
+					$course["instructorImagePath"] = $courses[$index]["instructorImagePath"];
+				}
+
 
 				if($course["title"] == "")
 				{
@@ -214,6 +211,7 @@
 				$courses[$index]["courseImageAlt"] = $course["courseImageAlt"];
 				
 				writeCoursesFile($courses);
+				$_SESSION["createdCourses"][$course["id"]] = $course;
 			}
 			else
 			{
@@ -332,6 +330,7 @@
 
 
 			writeCourse($course, array());
+			$_SESSION["createdCourses"][$course["id"]] = $course;
 		}
 		else
 		{
