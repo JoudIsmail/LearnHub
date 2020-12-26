@@ -25,20 +25,23 @@ if(isset($_GET["error"]))
 
 
 }
-echo "            <div class=\"outer\">\n";
+echo "            <section class=\"outer\">\n";
 echo "                    <div class=\"box\">\n";
 echo "                        <form action=\"do.php\" method= \"post\" accept-charset= \"UTF-8\">\n";
 echo "                            <h1 class=\"text-center\">Anmelden</h1>\n";
 echo "                        <div class=\"input-container\">\n";
-echo "                            <input name=\"email\" type=\"email\" required=\"\" placeholder=\"E-Mail Addresse\"/>		\n";
+echo "                            <input id=\"email\" name=\"email\" type=\"email\" required=\"\" placeholder=\"E-Mail Addresse\"/>		\n";
+echo "                            <span class= \"tooltip left\" id=\"tooltip\"></span>\n";
+echo "                            <span class= \"tooltip left\" id=\"tooltip-1\"></span>\n";
 echo "                        </div>\n";
 echo "                        <div class=\"input-container\">\n";
-echo "                            <input name=\"password\" type=\"password\" required=\"\" placeholder=\"Passwort\"/>	\n";
+echo "                            <input id=\"password\" name=\"password\" type=\"password\" required=\"\" placeholder=\"Passwort\" onkeypress=\"return AvoidSpace(event)\"/>	\n";
+echo "                            <span class= \"tooltip left\" id=\"tooltipPass\"></span>\n";
 echo "                        </div>\n";
-echo "                            <button name=\"login\" type=\"submit\" class=\"btn-01\">Anmelden</button>\n";
+echo "                            <button id=\"login\" name=\"login\" type=\"submit\" class=\"btn-01\">Anmelden</button>\n";
 echo "                    </form>	\n";
 echo "                    </div>\n";
-echo "            </div>\n";
+echo "            </section>\n";
 echo "            \n";
 require_once('inc/footer.php');
  ?>
