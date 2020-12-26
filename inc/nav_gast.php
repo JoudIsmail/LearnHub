@@ -37,5 +37,5 @@ else{
     echo "                <a title=\"hier gelangen sie zum Gästebuch in dem User Bewertungen für die Seite hinterlassen können\" href=\"gaestebuch.php\">Gästebuch</a>\n";
     
 }
-echo "                <a class=\"a-abc\" href=\"#\"><img class=\"img-abc\" src=\"../bilder/abc.png\" alt=\"\" title=\"Font für Legastheniker benutzen\"></a>\n";
+echo "                <a id=\"change-font\" class=\"a-abc\" href=\"\"><img class=\"img-abc\" src=\"../bilder/abc.png\" alt=\"\" title=\"Font für Legastheniker benutzen\"></a>\n";
 ?>

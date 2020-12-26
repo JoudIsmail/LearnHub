@@ -33,7 +33,17 @@ echo "					<a href=\"#\"><i class=\"fa fa-youtube\"></i></a>\n";
 echo "				</div>\n";
 echo "			</div>\n";
 echo "		</footer>\n";
-echo "    </div>\n";
+echo "    </article>\n";
+if(($page == 'login') || ($page == 'registrieren')){
+    echo "  <script src=\"../js/validationLog.js\"></script>\n";
+}
+if(($page == 'erstellen') || ($page == 'bearbeiten')){
+    echo "  <script src=\"../js/validation.js\"></script>\n";
+}
+if($page == 'shop'){
+    echo "  <script src=\"../js/search.js\"></script>\n";
+}
+echo "  <script src=\"../js/font.js\"></script>\n";
 echo "</body>\n";
 echo "</html>\n";
 ?>

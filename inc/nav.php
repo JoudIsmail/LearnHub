@@ -36,5 +36,5 @@ else{
 }
 
 echo "                <a title=\"hier können sie sich ausloggen\" href=\"abmelden.php\">abmelden</a>\n";
-echo "                <a class=\"a-abc\" href=\"#\"><img class=\"img-abc\" src=\"../bilder/abc.png\" alt=\"\" title=\"Font für Legastheniker benutzen\"></a>\n";
+echo "                <a id=\"change-font\" class=\"a-abc\" href=\"\"><img class=\"img-abc\" src=\"../bilder/abc.png\" alt=\"\" title=\"Font für Legastheniker benutzen\"></a>\n";
 ?>
