@@ -514,7 +514,8 @@ img{
 }
 
 .currency{
-    width: 15%;
+    width: 6em;
+    height: 2.5em;
 }
 
 .u-currency{
@@ -566,8 +567,8 @@ img{
  }
 
  .contact-container> .img-teacher{
-     width: 44%;
-     height: 44%;
+     width: 11em;
+     height: 11em;
  }
 
  .legend{
@@ -996,7 +997,6 @@ img{
 .kommentar_info_GB{
     font-size: 1rem;
 		font-style:italic;
-		color: #645f5f;
 }
 
 /******************************************************
@@ -1531,8 +1531,8 @@ mark {
     }
 
     .user-img{
-        width: 20%;
-        height: 20%;
+        width: 8em;
+        height: 8em;
     }
 
     .column-2{
