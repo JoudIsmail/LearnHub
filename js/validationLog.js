@@ -29,14 +29,18 @@ function checkButton(button){
     if(button == true){
         if(sPage == "anmelden.php"){
             btn.disabled = true;
+            btn.setAttribute("disabled","disabled");
         }else if(sPage == "registrieren.php"){
             btnReg.disabled = true;
+            btnReg.setAttribute("disabled","disabled");
         }
     }else if(button == false){
         if(sPage == "anmelden.php"){
             btn.disabled = false;
+            btn.removeAttribute("disabled");
         }else if(sPage == "registrieren.php"){
             btnReg.disabled = false;
+            btnReg.removeAttribute("disabled");
         }
     }
 }
@@ -56,7 +60,7 @@ function isMailValid (email) {
 
   // Check If Password Is Strong
 function isPasswordStrong(password){
-    var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*\(\)])(?!.* )(?=.{14,20})");
+    var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!&quot#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\$%\^&\*\(\)])(?!.* )(?=.{14,20})");
     
     if(strongRegex.test(password.value)){
         return true;
@@ -66,7 +70,7 @@ function isPasswordStrong(password){
 
 // Check If Password Is Weak
 function isPasswordWeak(password){
-    var weakRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*\(\)])(?!.* )(?=.{8,20})");
+    var weakRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!&quot#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\$%\^&\*\(\)])(?!.* )(?=.{8,20})");
 
     if(weakRegex.test(password.value)){
         return true;
@@ -84,7 +88,7 @@ function isConfirmValid(password, password2){
 
 /* Event Listeners */
 
-email.addEventListener('change', function(){
+addListenerMulti(email, 'keyup change', function(){
     if(isInputEmpty(email)){
         printThis('false', log, 'emptyMail');
         printThis('true', logInvalid, '');
@@ -102,7 +106,7 @@ email.addEventListener('change', function(){
 
 // register thes Event Listeners after checking pages
 if(sPage == 'anmelden.php'){
-    password.addEventListener('change', function(){
+    addListenerMulti(password, 'keyup change', function(){
         if(isInputEmpty(password)){
             printThis('false', logPass, 'emptyPassword');
             checkValidity();
@@ -115,7 +119,7 @@ if(sPage == 'anmelden.php'){
 
 // the trick is to check confirm pass in password listener
 if(sPage == 'registrieren.php'){
-    password.addEventListener('change', function(){
+    addListenerMulti(password, 'keyup change', function(){
         if(isInputEmpty(password)){
             printThis('false', logPass, 'emptyPassword');
             printThis('true', logPassStrength, '');
@@ -163,7 +167,7 @@ if(sPage == 'registrieren.php'){
         }
     });
 
-    confirmPass.addEventListener('change', function(){
+    addListenerMulti(confirmPass, 'keyup change', function(){
         if(!isConfirmValid(password, confirmPass)){
             printThis('false', logConfirmPass, 'noMatch');
             checkValidity();
@@ -249,3 +253,11 @@ function checkValidity(){
         }
     }
 }
+
+// add one or more listeners to an element
+function addListenerMulti(element, eventNames, listener) {
+    var events = eventNames.split(' ');
+    for (var i=0, iLen=events.length; i<iLen; i++) {
+      element.addEventListener(events[i], listener, false);
+    }
+  }

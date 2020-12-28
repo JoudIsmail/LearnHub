@@ -1,4 +1,5 @@
 // variables 
+const body = document.querySelector('body');
 const title = document.getElementById('title'); 
 const summary = document.getElementById('summary'); 
 const edContent = document.getElementById('edContent'); 
@@ -24,8 +25,16 @@ const spanMaterialContent = document.getElementById('spanMaterialContent');
 const spanCourseImage = document.getElementById('spanCourseImage');
 const spanInstructorImage = document.getElementById('spanInstructorImage');
 
-//event listeners
+// Button
+const create = document.getElementById('create');
 
+// Images
+const instructorImage = document.getElementById('instructorImage');
+const courseImage = document.getElementById('courseImage');
+
+/* event listeners */
+
+// eventlistener for title
 title.addEventListener('keyup', function(){
     if(isInputEmpty(title)){
         invalidMessages(true, false, spanTitle, 70);
@@ -41,6 +50,7 @@ title.addEventListener('keyup', function(){
     }
 });
 
+//eventlistener for europicker
 euroPicker.addEventListener('keyup', function(){
     if(isInputEmpty(euroPicker)){
         invalidMessages(true, false, spanEuroPicker, 0);
@@ -52,6 +62,7 @@ euroPicker.addEventListener('keyup', function(){
     }
 });
 
+//eventlistener for centpicker
 centPicker.addEventListener('keyup', function(){
     if(isInputEmpty(centPicker)){
         invalidMessages(true, false, spanCentPicker, 0);
@@ -63,6 +74,7 @@ centPicker.addEventListener('keyup', function(){
     }
 });
 
+//eventlistener for courseImageAlt
 courseImageAlt.addEventListener('keyup', function(){
     if(isInputEmpty(courseImageAlt)){
         invalidMessages(true, false, spanCourseImageAlt, 70);
@@ -78,6 +90,7 @@ courseImageAlt.addEventListener('keyup', function(){
     }
 });
 
+//eventlistener for summary
 summary.addEventListener('keyup', function(){
     if(isInputEmpty(summary)){
         invalidMessages(true, false, spanSummary, 500);
@@ -93,36 +106,39 @@ summary.addEventListener('keyup', function(){
     }
 });
 
+//eventlistener for edContent
 edContent.addEventListener('keyup', function(){
     if(isInputEmpty(edContent)){
-        invalidMessages(true, false, spanEdContent, 300);
+        invalidMessages(true, false, spanEdContent, 1000);
         checkValidity();
 
-    }else if(!isThisCorrect(edContent)){
-        invalidMessages(false, true, spanEdContent, 300);
+    }else if(!isThisCorrect3(edContent)){
+        invalidMessages(false, true, spanEdContent, 1000);
         checkValidity();
 
     }else{
-        invalidMessages(false, false, spanEdContent, 300);
+        invalidMessages(false, false, spanEdContent, 1000);
         checkValidity();
     }
 });
 
+//eventlistener for suitableFor
 suitableFor.addEventListener('keyup', function(){
     if(isInputEmpty(suitableFor)){
-        invalidMessages(true, false, spanSuitableFor, 300);
+        invalidMessages(true, false, spanSuitableFor, 1000);
         checkValidity();
 
-    }else if(!isThisCorrect(suitableFor)){
-        invalidMessages(false, true, spanSuitableFor, 300);
+    }else if(!isThisCorrect3(suitableFor)){
+        invalidMessages(false, true, spanSuitableFor, 1000);
         checkValidity();
 
     }else{
-        invalidMessages(false, false, spanSuitableFor, 300);
+        invalidMessages(false, false, spanSuitableFor, 1000);
         checkValidity();
     }
 });
 
+//eventlistener for materialContent
 materialContent.addEventListener('keyup', function(){
     if(isInputEmpty(materialContent)){
         invalidMessages(true, false, spanMaterialContent, 300);
@@ -138,6 +154,7 @@ materialContent.addEventListener('keyup', function(){
     }
 });
 
+//eventlistener for instructorName
 instructorName.addEventListener('keyup', function(){
     if(isInputEmpty(instructorName)){
         invalidMessages(true, false, spanInstructorName, 30);
@@ -153,6 +170,7 @@ instructorName.addEventListener('keyup', function(){
     }
 });
 
+//eventlistener for instructorContact
 instructorContact.addEventListener('keyup', function(){
     if(isInputEmpty(instructorContact)){
         invalidMessages(true, false, spanInstructorContact, 100);
@@ -167,6 +185,26 @@ instructorContact.addEventListener('keyup', function(){
         checkValidity();
     }
 });
+
+//eventlistener for courseImage/ instructorImage
+// moving the mouse over the body will fire the event
+body.addEventListener('mousemove', function(){
+    if(!isImageCorrect(courseImage)){
+        invalidMessages(true, false, spanCourseImage,1);
+        checkValidity();
+    }else{
+        invalidMessages(false, false, spanCourseImage, 1);
+        checkValidity();
+    }
+    if(!isImageCorrect(instructorImage)){
+        invalidMessages(true, false, spanInstructorImage,1);
+        checkValidity();
+    }else{
+        invalidMessages(false, false, spanInstructorImage, 1);
+        checkValidity();
+    }
+});
+
 // Display Invalid Message
 function invalidMessages(empty, invalid, spanName, num){
     if(empty){
@@ -184,13 +222,6 @@ function invalidMessages(empty, invalid, spanName, num){
     }
 }
 
-// Button
-const create = document.getElementById('create');
-
-// Images
-const instructorImage = document.getElementById('instructorImage');
-const courseImage = document.getElementById('courseImage');
-
 /* Core Functions */
 
 //check if input is Empty
@@ -201,11 +232,14 @@ function isInputEmpty(input){
     return false;
 }
 
+// function to enable/disable button
 function checkButton(button){
     if(button == true){
         create.disabled = true;
+        create.setAttribute("disabled","disabled");
     }else if(button == false){
         create.disabled = false;
+        create.removeAttribute("disabled");
     }
 }
 
@@ -231,40 +265,42 @@ function checkButton(button){
 /* Inputs Validation */
 
 function isSummaryCorrect(input){
-    var validRegex = new RegExp('^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿßæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸßÆŒ]{1,500}$');
-    if(validRegex.test(input.value)){
+    if((input.value.trim().length > 0)&&(input.value.trim().length <= 500)){
         return true;
     }
     return false;
 }
 
 function isThisCorrect(input){
-    var validRegex = new RegExp('^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿßæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸßÆŒ]{1,300}$'); 
-    if(validRegex.test(input.value)){
+    if((input.value.trim().length > 0)&&(input.value.trim().length <= 300)){
+        return true;
+    }
+    return false;
+}
+
+function isThisCorrect3(input){
+    if((input.value.trim().length > 0)&&(input.value.trim().length <= 1000)){
         return true;
     }
     return false;
 }
 
 function isInstructorNameCorrect(input){
-    var validRegex = new RegExp('^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿßæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸßÆŒ]{1,30}$');
-    if(validRegex.test(input.value)){
+    if((input.value.trim().length > 0)&&(input.value.trim().length <= 30)){
         return true;
     }
     return false;
 }
 
 function isInstructorContactCorrect(input){
-    var validRegex = new RegExp('^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿßæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸßÆŒ]{1,100}$');
-    if(validRegex.test(input.value)){
+    if((input.value.trim().length > 0)&&(input.value.trim().length <= 100)){
         return true;
     }
     return false;
 }
 
 function isThisCorrect2(input){
-    var validRegex = new RegExp('^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿßæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸßÆŒ]{1,70}$'); 
-    if(validRegex.test(input.value)){
+    if((input.value.trim().length > 0)&&(input.value.trim().length <= 70)){
         return true;
     }
     return false;
@@ -284,6 +320,8 @@ function isImageCorrect(image){
 function checkValidity(){
     if((isInputEmpty(title)) || (isInputEmpty(summary)) || (isInputEmpty(edContent)) || (isInputEmpty(suitableFor)) || (isInputEmpty(instructorName)) || (isInputEmpty(instructorContact)) || (isInputEmpty(courseImageAlt)) || (isInputEmpty(euroPicker)) || (isInputEmpty(centPicker)) || (isInputEmpty(materialContent))){
         checkButton(true);
+    }else if(isInputEmpty(title)){
+        invalidMessages(true, false, spanSummary, 500);
     }else if((!isThisCorrect2(title)) || (!isThisCorrect2(courseImageAlt)) || (!isThisCorrect(edContent)) || (!isThisCorrect(suitableFor)) || (!isThisCorrect(materialContent)) || (!isSummaryCorrect(summary)) || (!isInstructorNameCorrect(instructorName))|| (!isInstructorContactCorrect(instructorContact))){
         checkButton(true);
     }else if((!isImageCorrect(instructorImage)) || (!isImageCorrect(courseImage))){
@@ -304,6 +342,5 @@ var loadInstructorImage = function(event){
 }
 
 // disable button on load page
-const body = document.querySelector('body');
 body.onload = checkValidity();
 
