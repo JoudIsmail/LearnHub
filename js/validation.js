@@ -319,10 +319,31 @@ function isImageCorrect(image){
 // check validity to disable button
 function checkValidity(){
     if((isInputEmpty(title)) || (isInputEmpty(summary)) || (isInputEmpty(edContent)) || (isInputEmpty(suitableFor)) || (isInputEmpty(instructorName)) || (isInputEmpty(instructorContact)) || (isInputEmpty(courseImageAlt)) || (isInputEmpty(euroPicker)) || (isInputEmpty(centPicker)) || (isInputEmpty(materialContent))){
+        if(isInputEmpty(title)){
+            invalidMessages(true, false, spanTitle, 70);
+        }if(isInputEmpty(summary)){
+            invalidMessages(true, false, spanSummary, 500);
+        }if(isInputEmpty(edContent)){
+            invalidMessages(true, false, spanEdContent, 1000);
+        }if(isInputEmpty(suitableFor)){
+            invalidMessages(true, false, spanSuitableFor, 1000);
+        }if(isInputEmpty(instructorName)){
+            invalidMessages(true, false, spanInstructorName, 30);
+        }if(isInputEmpty(instructorContact)){
+            invalidMessages(true, false, spanInstructorContact, 100);
+        }if(isInputEmpty(courseImageAlt)){
+            invalidMessages(true, false, spanCourseImageAlt, 70);
+        }if(isInputEmpty(euroPicker)){
+            invalidMessages(true, false, spanEuroPicker, 0);
+        }if(isInputEmpty(centPicker)){
+            invalidMessages(true, false, spanCentPicker, 0);
+        }if(isInputEmpty(materialContent)){
+            invalidMessages(true, false, spanMaterialContent, 300);
+        }
         checkButton(true);
-    }else if(isInputEmpty(title)){
-        invalidMessages(true, false, spanSummary, 500);
-    }else if((!isThisCorrect2(title)) || (!isThisCorrect2(courseImageAlt)) || (!isThisCorrect(edContent)) || (!isThisCorrect(suitableFor)) || (!isThisCorrect(materialContent)) || (!isSummaryCorrect(summary)) || (!isInstructorNameCorrect(instructorName))|| (!isInstructorContactCorrect(instructorContact))){
+    }
+    
+    else if((!isThisCorrect2(title)) || (!isThisCorrect2(courseImageAlt)) || (!isThisCorrect(edContent)) || (!isThisCorrect(suitableFor)) || (!isThisCorrect(materialContent)) || (!isSummaryCorrect(summary)) || (!isInstructorNameCorrect(instructorName))|| (!isInstructorContactCorrect(instructorContact))){
         checkButton(true);
     }else if((!isImageCorrect(instructorImage)) || (!isImageCorrect(courseImage))){
         checkButton(true);

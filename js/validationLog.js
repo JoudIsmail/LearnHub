@@ -207,25 +207,25 @@ function printThis(valid, input, message){
 function invalidMessages(statement){
     switch(statement){
         case "emptyMail":
-            log.textContent = "* Please Enter your Email";
+            log.textContent = "* Bitte geben Sie eine gültige E-Mail Adresse ein";
             break;
         case "invalidMail":
-            logInvalid.textContent = "* Please Enter a valid Email";
+            logInvalid.textContent = "* Bitte geben Sie eine gültige E-Mail Adresse ein";
             break;
         case "emptyPassword":
-            logPass.textContent = "* Please Enter your Password";
+            logPass.textContent = "* Bitte geben Sie Ihr Passwort ein!";
             break;
         case "strong":
-            logPassStrength.textContent = "Strong Password!";
+            logPassStrength.textContent = "Starkes Password!";
             break;
         case "weak":
-            logPassStrength.textContent = "Weak Password!";
+            logPassStrength.textContent = "Schwaches Passwort!";
             break;
         case "ivalidPassword":
-            logPassStrength.innerHTML = "* Password must be between 8 to 20 characters which contain:<ul><li>at least one lowercase letter.</li><li>one uppercase letter</li><li>one numeric digit</li><li>one special character</li><li>no white spaces</li></ul>";
+            logPassStrength.innerHTML = "* Das Passwort muss 8 bis 20 Zeichen haben, und aus folgenden Dingen bestehen:<ul><li>mindestens ein Kleinbuchstabe</li><li>mindestens ein Großbuchstabe</li><li>mindestens eine Zahl (0-9)</li><li>mindestens ein Sonderzeichen (Erlaubt sind " + '!"#$%&\'()*+,-./:;<=>@[]^_`{|}~@' + ")</li><li>Keine Leerzeichen</li></ul>";
             break;
         case "noMatch":
-            logConfirmPass.textContent = "* Passwords don't match";
+            logConfirmPass.textContent = "* Passwörter stimmen nicht überein! Bitte widerholen Sie Ihr Passwort um sicherzustellen, dass Sie sich nicht vertippt haben.";
             break;
     }
 }
@@ -255,9 +255,6 @@ function checkValidity(){
 }
 
 // add one or more listeners to an element
-function addListenerMulti(element, eventNames, listener) {
-    var events = eventNames.split(' ');
-    for (var i=0, iLen=events.length; i<iLen; i++) {
-      element.addEventListener(events[i], listener, false);
-    }
+function addListenerMulti(el, s, fn) {
+    s.split(' ').forEach(e => el.addEventListener(e, fn, false));
   }
