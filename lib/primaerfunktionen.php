@@ -45,6 +45,10 @@
 			{
 				throw new registerFieldEmptyException("");
 			}
+			if(strlen(utf8_decode($password)) < 8)
+			{
+				throw new badPasswordException("");
+			}
 			try
 			{
 				$accounts = readUsersFile();
@@ -90,6 +94,41 @@
 		{
 			$courses = readCoursesFile();
 			$index = findCourseById($courses, $course["id"]);
+
+			if(strlen(utf8_decode(trim($_POST["summary"]))) > 500)
+			{
+				throw new badCourseSummaryException("");
+			}
+			if(strlen(utf8_decode(trim($_POST["title"]))) > 70)
+			{
+				throw new badCourseTitleException("");
+			}
+			if(strlen(utf8_decode(trim($_POST["instructorName"]))) > 30)
+			{
+				throw new badInstructorNameException("");
+			}
+			if(strlen(utf8_decode(trim($_POST["educationalContent"]))) > 1000)
+			{
+				throw new badCourseEducationalContentException("");
+			}
+			if(strlen(utf8_decode(trim($_POST["suitableFor"]))) > 1000)
+			{
+				throw new badCourseSuitableForException("");
+			}
+			if(strlen(utf8_decode(trim($_POST["instructorContact"]))) > 100)
+			{
+				throw new badInstructorContactException("");
+			}
+			if(strlen(utf8_decode(trim($_POST["materialContent"]))) > 300)
+			{
+				throw new badCourseMaterialContentException("");
+			}
+			if(strlen(utf8_decode(trim($_POST["courseImageAlt"]))) > 70)
+			{
+				throw new badCourseImageAltException("");
+			}
+
+
 			if($courses[$index]["creatorId"] == $_SESSION["id"])
 			{
 				if(isset($_FILES['courseImage']) && $_FILES['courseImage']['error'] != UPLOAD_ERR_NO_FILE) 
@@ -135,7 +174,7 @@
 					throw new courseFieldEmptyException("");
 				}
 
-				$courses[$index]["summary"] = $course["summary"];
+				$courses[$index]["summary"] = nl2br($course["summary"]);
 
 
 				if($course["priceEuro"] == "")
@@ -158,21 +197,21 @@
 					throw new courseFieldEmptyException("");
 				}
 
-				$courses[$index]["educationalContent"] = $course["educationalContent"];
+				$courses[$index]["educationalContent"] = nl2br($course["educationalContent"]);
 
 				if($course["suitableFor"] == "")
 				{
 					throw new courseFieldEmptyException("");
 				}
 
-				$courses[$index]["suitableFor"] = $course["suitableFor"];
+				$courses[$index]["suitableFor"] = nl2br($course["suitableFor"]);
 
 				if($course["materialContent"] == "")
 				{
 					throw new courseFieldEmptyException("");
 				}
 
-				$courses[$index]["materialContent"] = $course["materialContent"];
+				$courses[$index]["materialContent"] = nl2br($course["materialContent"]);
 
 				if($course["instructorName"] == "")
 				{
@@ -186,7 +225,7 @@
 					throw new courseFieldEmptyException("");
 				}
 
-				$courses[$index]["instructorContact"] = $course["instructorContact"];
+				$courses[$index]["instructorContact"] = nl2br($course["instructorContact"]);
 
 
 				if($course["hImpairedSuitability"] == "")
@@ -211,6 +250,7 @@
 				$courses[$index]["courseImageAlt"] = $course["courseImageAlt"];
 				
 				writeCoursesFile($courses);
+				$course["participants"] = $courses[$index]["participants"];
 				$_SESSION["createdCourses"][$course["id"]] = $course;
 			}
 			else
@@ -237,6 +277,44 @@
 			$id = countCourses();
 			$course["id"] = $id;
 			$course["creatorId"] = $_SESSION["id"];
+
+			if(strlen(utf8_decode(trim($_POST["summary"]))) > 500)
+			{
+				throw new badCourseSummaryException("");
+			}
+			if(strlen(utf8_decode(trim($_POST["title"]))) > 70)
+			{
+				throw new badCourseTitleException("");
+			}
+			if(strlen(utf8_decode(trim($_POST["instructorName"]))) > 30)
+			{
+				throw new badInstructorNameException("");
+			}
+			if(strlen(utf8_decode(trim($_POST["educationalContent"]))) > 1000)
+			{
+				throw new badCourseEducationalContentException("");
+			}
+			if(strlen(utf8_decode(trim($_POST["suitableFor"]))) > 1000)
+			{
+				throw new badCourseSuitableForException("");
+			}
+			if(strlen(utf8_decode(trim($_POST["instructorContact"]))) > 100)
+			{
+				throw new badInstructorContactException("");
+			}
+			if(strlen(utf8_decode(trim($_POST["materialContent"]))) > 300)
+			{
+				throw new badCourseMaterialContentException("");
+			}
+			if(strlen(utf8_decode(trim($_POST["courseImageAlt"]))) > 70)
+			{
+				throw new badCourseImageAltException("");
+			}
+
+
+			
+
+
 			if(isset($_FILES['courseImage']) && $_FILES['courseImage']['error'] != UPLOAD_ERR_NO_FILE) 
 			{
 				$courseImagePath = $COURSE_IMAGE_PATH_ABS . "/" . $course["id"] . ".jpg";
@@ -276,6 +354,8 @@
 			if($course["summary"] == "")
 			{
 				throw new courseFieldEmptyException("");
+			}else{
+				$course["summary"] = nl2br($course["summary"]);
 			}
 
 			if($course["priceEuro"] == "")
@@ -291,17 +371,26 @@
 			if($course["educationalContent"] == "")
 			{
 				throw new courseFieldEmptyException("");
+			}else{
+				$course["educationalContent"] = nl2br($course["educationalContent"]);
 			}
+
 
 			if($course["suitableFor"] == "")
 			{
 				throw new courseFieldEmptyException("");
+			}else{
+				$course["suitableFor"] = nl2br($course["suitableFor"]);
 			}
+
 
 			if($course["materialContent"] == "")
 			{
 				throw new courseFieldEmptyException("");
+			}else{
+				$course["materialContent"] = nl2br($course["materialContent"]);
 			}
+
 
 			if($course["instructorName"] == "")
 			{
@@ -311,7 +400,10 @@
 			if($course["instructorContact"] == "")
 			{
 				throw new courseFieldEmptyException("");
+			}else{
+				$course["instructorContact"] = nl2br($course["instructorContact"]);
 			}
+
 
 			if($course["hImpairedSuitability"] == "")
 			{
@@ -330,6 +422,7 @@
 
 
 			writeCourse($course, array());
+			$course["participants"] = array();
 			$_SESSION["createdCourses"][$course["id"]] = $course;
 		}
 		else
@@ -375,6 +468,8 @@
 		if($entry["name"] == "" || $entry["comment"] == "" || $entry["title"] == "")
 		{
 			throw new entryFieldEmptyException("");
+		}else{
+			$entry["comment"] = nl2br($entry["comment"]);
 		}
 		writeEntry($entry);
 	}

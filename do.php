@@ -44,6 +44,11 @@
 
 	if(isset($_POST["register"]))
 	{
+		if(strcmp($_POST["password"], $_POST["passwordRepeat"]) !== 0)
+		{
+			header("Location: registrieren.php?error=wiederholung_falsch");
+			exit;
+		}
 		try
 		{
 			register($_POST["email"], $_POST["password"]);
@@ -65,6 +70,10 @@
 		} catch (userFieldEmptyException $e)
 		{
 			echo "programming error";
+		} catch (badPasswordException $e)
+		{
+			header("Location: registrieren.php?error=schlechtes_passwort");
+			exit;
 		}
 		header("Location: /nachricht.php?type=registriert");
 
@@ -109,7 +118,44 @@
 		{
 			header("Location: /kurs_bearbeiten.php?id=".$_POST["id"]."&error=feld_leer");
 			exit;
+		} catch (badCourseTitleException $e)
+		{
+			header("Location: /kurs_bearbeiten.php?id=".$_POST["id"]."&error=badTitle");
+			exit;
+		} catch (badCourseSummaryException $e)
+		{
+			header("Location: /kurs_bearbeiten.php?id=".$_POST["id"]."&error=badSummary");
+			exit;
+		} catch (badCourseMaterialContentException $e)
+		{
+			header("Location: /kurs_bearbeiten.php?id=".$_POST["id"]."&error=badMaterialContent");
+			exit;
+		} catch (badInstructorContactException $e)
+		{
+			header("Location: /kurs_bearbeiten.php?id=".$_POST["id"]."&error=badInstructorContact");
+			exit;
+		} catch (badInstructorNameException $e)
+		{
+			header("Location: /kurs_bearbeiten.php?id=".$_POST["id"]."&error=badInstructorName");
+			exit;
+		} catch (badCourseEducationalContentException $e)
+		{
+			header("Location: /kurs_bearbeiten.php?id=".$_POST["id"]."&error=badEducationalContent");
+			exit;
+		} catch (badCourseSuitableForException $e)
+		{
+			header("Location: /kurs_bearbeiten.php?id=".$_POST["id"]."&error=badSuitableFor");
+			exit;
+		} catch (badCourseImageAltException $e)
+		{
+			header("Location: /kurs_erstellen.php?error=badCourseImageAlt");
+			exit;
+
 		}
+
+
+
+
 		header("Location: /nachricht.php?type=bearbeitet");
 
 	}
@@ -125,15 +171,53 @@
 
 		} catch (notLoggedInException $e)
 		{
-			echo "nich eingeloggt";
+			header("Location: /anmelden.php");
+			exit;
 
 		} catch (fileUploadFailedException $e)
 		{
-			echo "datei fail";
+			echo "Dateiupload fehlgeschlagen. Kritischer Fehler.";
+			exit;
 		} catch (courseFieldEmptyException $e)
 		{
-			echo "vergessen einzugeben";
+			header("Location: /kurs_erstellen.php?error=feld_leer");
+			exit;
+		} catch (badCourseTitleException $e)
+		{
+			header("Location: /kurs_erstellen.php?error=badTitle");
+			exit;
+		} catch (badCourseSummaryException $e)
+		{
+			header("Location: /kurs_erstellen.php?error=badSummary");
+			exit;
+		} catch (badCourseMaterialContentException $e)
+		{
+			header("Location: /kurs_erstellen.php?error=badMaterialContent");
+			exit;
+		} catch (badInstructorContactException $e)
+		{
+			header("Location: /kurs_erstellen.php?error=badInstructorContact");
+			exit;
+		} catch (badInstructorNameException $e)
+		{
+			header("Location: /kurs_erstellen.php?error=badInstructorName");
+			exit;
+		} catch (badCourseEducationalContentException $e)
+		{
+			header("Location: /kurs_erstellen.php?error=badEducationalContent");
+			exit;
+		} catch (badCourseSuitableForException $e)
+		{
+			header("Location: /kurs_erstellen.php?error=badSuitableFor");
+			exit;
+		} catch (badCourseImageAltException $e)
+		{
+			header("Location: /kurs_erstellen.php?error=badCourseImageAlt");
+			exit;
+
 		}
+
+
 
 		header("Location: /nachricht.php?type=erstellt");
 

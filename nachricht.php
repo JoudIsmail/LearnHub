@@ -32,7 +32,7 @@
 												"abgemeldet" => "Beehren Sie uns bald wieder!",
 												"login_fehlgeschlagen" => "Es trat ein Fehler während Ihres Anmeldeversuches auf. Bitte versuchen Sie es noch einmal, oder Kontaktieren Sie uns unter ...!",
 												"angemeldet" => "Wir freuen uns, dass Sie wieder da sind.",
-												"erst_registrieren" => "Sie haben versucht, einen Kurs zu kaufen, obwohl Sie noch nicht angemeldet sind.<br>Nachdem Sie sich mit Ihrer E-Mail Addresse und einem Passwort einen Benutzer angelegt haben, können Sie unsere Dienstleistungen voll ausnutzen!",
+												"erst_registrieren" => "Sie haben versucht, einen Kurs zu kaufen, obwohl Sie noch nicht angemeldet sind.<br>Nachdem Sie sich mit Ihrer E-Mail Adresse und einem Passwort einen Benutzer angelegt haben, können Sie unsere Dienstleistungen voll ausnutzen!",
 												"registriert" => "Nun dass Sie sich einen Benutzer angelegt haben, können Sie Kurse kaufen, und auch erstellen. Viel Spaß und Erfolg !",
 												"unbefugt" => "Der Eintritt in den Adminpanel ist Ihnen unbefugt! Versuchen Sie es mit dem Benutzername admin und Kennwort admin!",
 											);

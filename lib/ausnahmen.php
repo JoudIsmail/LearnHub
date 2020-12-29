@@ -14,5 +14,17 @@
 	class alreadyLoggedInException extends Exception {}
 	class alreadyRegisteredException extends Exception {}
 	class fileUploadFailedException extends Exception {}
+	class badRepeatedPasswordException extends Exception {}
+	class badPasswordException extends Exception {}
+	class badCourseTitleException extends Exception {}
+	class badCourseSummaryException extends Exception {}
+	class badCourseEducationalContentException extends Exception {}
+	class badCourseSuitableForException extends Exception {}
+	class badInstructorNameException extends Exception {}
+	class badInstructorContactException extends Exception {}
+	class badCourseMaterialContentException extends Exception {}
+	class badCourseImageAltException extends Exception {}
+	
+
 
 ?>

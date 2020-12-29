@@ -53,7 +53,7 @@ if($erstellerversion)
 	echo "          <div class=\"teilnehmer-container\">\n";
 	echo "              <h2 class=\"h2-teilnehmer\"> Teilnehmer: </h2>\n";
 	echo "              <div class=\"teilnehmerliste\">\n";
-	generateParticipantsList($kursid);
+	generateParticipantsList($kurs);
 	echo "              </div>\n";
 	echo "          </div>\n";
 

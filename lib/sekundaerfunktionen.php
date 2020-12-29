@@ -27,11 +27,11 @@
 			echo "                <div class=\"columns column-66\">\n";
 			echo "                    <div class=\"col-21\">\n";
 			echo "                        <a class=\"kurs_link_EK\" href=\"kurs.php?id=".$course["id"]."\">\n";
-			echo "                            <img class=\"kurs_box_EK\" alt=".$course["courseImageAlt"]." src=".$course["courseImagePath"]."></a>\n";
+			echo "                            <img class=\"kurs_box_EK\"  alt=".$course["courseImageAlt"]." src=".$course["courseImagePath"]."></a>\n";
 			echo "                    </div>\n";
 			echo "                    <div class=\"col-69\">\n";
 			echo "                            <a class=\"p-420\" href=\"kurs.php?id=".$course["id"]."\"> <h3 id=".$course["id"]."> <strong> <u> ".$course["title"]." </u> </strong> </h3> \n";
-			echo "                            ".$course["summary"]."\n";
+			echo "                            ".strip_tags($course["summary"])."\n";
 			echo "                                                    </a>\n";
 			echo "                    </div>\n";
 			echo "                    <div class=\"col-420\"><p class=\"p-bg\">\n";
@@ -58,7 +58,8 @@
 
 	function generateBoughtCourses(){
 		$courses = readCoursesFile();
-		foreach ($_SESSION["boughtCourses"] as $course){
+		foreach ($_SESSION["boughtCourses"] as $courseId => $potentiell_veraltete_kursdaten){
+			$course = $courses[findCourseById($courses, $courseId)];
 			echo "				<div class=\"grid_element_EK1\">\n";
 			echo "					<a href=\"kurs.php?id=".$course["id"]."\"> <img alt=".$course["courseImageAlt"]." class=\"grid_element_bild_EK\" src=".$course["courseImagePath"]."> </a>\n";
 			echo "					<h3 class=\"grid_element_titel_EK\" >".$course["title"]."</h3>\n";
@@ -77,8 +78,9 @@
 		}
 	}
 
-	function generateParticipantsList($kursId){
-		$course = $_SESSION["createdCourses"][$kursId];
+
+	//generiert aus dem "participants" Feld in $course eine liste von teilnehmer-email adressen
+	function generateParticipantsList($course){
 		$emailArray = array();
 		$users = readUsersFile();
 		foreach ($course["participants"] as $participantUserId){

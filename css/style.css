@@ -496,14 +496,14 @@ img{
   }
 
   .txtarea{
-    width:80%; 
+    width:100%; 
     height: 8.3em;
     font-size: 1.125rem;
     font-weight: 600;
 }
 
 .input-bg{
-    width: 80%;
+    width: 100%;
     height: 2%;
     font-weight: 600;
     font-size: 1.125rem;
@@ -511,6 +511,21 @@ img{
 
 .input-1{
     height: 7%;
+}
+
+.courseInputWrapper{
+	width: 90%;
+
+}
+
+.maxCharLimit{
+	text-align:right;
+	font-size:1.125rem;
+	color:#6f6e6e;
+}
+
+#preisDisplay{
+	display:none;
 }
 
 .currency{
@@ -904,6 +919,10 @@ img{
     }
 
 
+    .spanError{
+        color: red;
+        font-size: 1.2rem;
+    }
 
 
 

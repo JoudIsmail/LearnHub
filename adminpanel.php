@@ -34,9 +34,8 @@ if(isset($_POST["Login"]))
 		echo "		\n";
 		echo "	</body>\n";
 		echo "</html>\n";
-
+		exit;
 	}
-}else{
-	header("Location: nachricht.php?type=unbefugt");
 }
+	header("Location: nachricht.php?type=unbefugt");
 ?>

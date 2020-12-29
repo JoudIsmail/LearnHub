@@ -15,21 +15,21 @@ echo "	<meta charset=\"UTF-8\">\n";
 echo "	<title> ".$title." </title>\n";
 echo "</head>\n";
 echo "\n";
-echo "<body class='normal'>\n";
+echo "<body class=\"normal\">\n";
 if((($page == 'registrieren')&&(!isset($_SESSION['email'])))||((!isset($_SESSION['email']))&&($page == 'login'))){
-    echo "	<article class=\"fullscreen fullscreen-bg\">\n";
+	echo "	<article class=\"fullscreen fullscreen-bg\">\n";
 }else{
-    echo "	<article class=\"fullscreen \">\n";
+	echo "	<article class=\"fullscreen \">\n";
 }
-echo "		<nav>\n";
-echo "            <section class=\"container\">\n";
+echo "			<nav>\n";
+echo "      	<section class=\"container\">\n";
 if (!empty($_SESSION['email'])){
     require_once('nav.php');
 }else{
     require_once('nav_gast.php');
 }
-echo "            </section>\n";
-echo "        </nav>\n";
+echo "        </section>\n";
+echo "      </nav>\n";
 echo "\n";
 ?>
 

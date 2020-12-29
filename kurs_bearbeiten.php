@@ -23,9 +23,39 @@ $course = $_SESSION["createdCourses"][$kursid];
 
 if(isset($_GET["error"]))
 {
-	if($_GET["error"] == "feld_leer")
+
+	switch($_GET["error"])
 	{
-		echo "<h1 style=\"color:red\"> Ein oder mehrere Felder wurden leer gelassen. Bitte füllen Sie alle Felder aus. </h1>";
+		case "feld_leer":
+			echo "<h1 style=\"color:red\"> Ein oder mehrere Felder wurden leer gelassen. Bitte füllen Sie alle Felder aus. </h1>";
+			break;
+		case "badSummary":
+			echo "<h1 style=\"color:red\"> Die Kurzbeschreibung darf 500 Zeichen nicht überschreiten. </h1>";
+			break;
+		case "badTitle":
+			echo "<h1 style=\"color:red\"> Der Titel darf 70 Zeichen nicht überschreiten. </h1>";
+			break;
+		case "badMaterialContent":
+			echo "<h1 style=\"color:red\"> Die Angabe der im Kurs enthaltenen Dinge darf 300 Zeichen nicht überschreiten. </h1>";
+			break;
+		case "badInstructorName":
+			echo "<h1 style=\"color:red\"> Der Name des Kurserstellers darf 30 Zeichen nicht überschreiten. </h1>";
+			break;
+		case "badInstructorContact":
+			echo "<h1 style=\"color:red\"> Die Angabe über Kontaktmöglichkeiten darf 100 Zeichen nicht überschreiten. </h1>";
+			break;
+		case "badSuitableFor":
+			echo "<h1 style=\"color:red\"> Die Angabe, für wen dieser Kurs geeignet ist, darf 1000 Zeichen nicht überschreiten . </h1>";
+			break;
+		case "badEducationalContent":
+			echo "<h1 style=\"color:red\"> Die Angabe der Wissensinhalte, die im Kurs gelehrt werden, darf 1000 Zeichen nicht überschreiten. </h1>";
+			break;
+		case "badCourseImageAlt":
+			echo "<h1 style=\"color:red\"> Die Textalternative des Kursbildes darf 70 Zeichen nicht überschreiten</h1>";
+			break;
+
+
+
 	}
 }
 
@@ -37,20 +67,32 @@ echo "		    <form action=\"do.php\" method=\"post\" enctype=\"multipart/form-dat
 echo "                    <input id=\"create\" name=\"editCourse\" type=\"submit\" class=\"btn\" value=\"Speichern\">\n";
 echo "		    <input type=\"hidden\" name=\"id\" value=\"".$_GET["id"]."\">\n";
 echo "                  </h1>\n";
-echo "                    <p>Titel des Kurses:</p>\n";
+echo "                  <div class=\"courseInputWrapper\">\n";
+echo "    	             	<p>Titel des Kurses:</p>\n";
 echo "                    <input id=\"title\" name=\"title\" class=\"input-bg\" value=\"".$course['title']."\" required>\n";
-echo "                            <span class= \"tooltip left\" id=\"spanTitle\"></span>\n";
+echo "                    <span class= \"tooltip left\" id=\"spanTitle\"></span>\n";
+echo "                   		<p class=\"maxCharLimit\">(Maximal 70 Zeichen)</p>\n";
+echo "                 	</div>\n";
+echo "                  <div class=\"courseInputWrapper\">\n";
 echo "                    <p class=\"pkurz\">Kurzbeschreibung (Wird auf der Startseite angezeigt):</p>\n";
-echo "					<textarea id=\"summary\" name=\"summary\" class=\"txtarea\" required>".$course['summary']."</textarea>";
-echo "                            <span class= \"tooltip left\" id=\"spanSummary\"></span>\n";
-echo "					<p class=\"plernen\">Was kann man in diesem Kurs lernen?</p>\n";
-echo "									<textarea id=\"edContent\" name=\"educationalContent\" class=\"txtarea\" required>".$course['educationalContent']."</textarea>";
-echo "                            <span class= \"tooltip left\" id=\"spanEdContant\"></span>\n";
+echo "										<textarea id=\"summary\" name=\"summary\" class=\"txtarea\" required>".strip_tags($course['summary'])."</textarea>";
+echo "                      <span class= \"tooltip left\" id=\"spanSummary\"></span>\n";
+echo "                   		<p class=\"maxCharLimit\">(Maximal 500 Zeichen)</p>\n";
+echo "                 	</div>\n";
+echo "                  <div class=\"courseInputWrapper\">\n";
+echo "										<p class=\"plernen\">Was kann man in diesem Kurs lernen?</p>\n";
+echo "										<textarea id=\"edContent\" name=\"educationalContent\" class=\"txtarea\" required>".strip_tags($course['educationalContent'])."</textarea>";
+echo "                      <span class= \"tooltip left\" id=\"spanEdContant\"></span>\n";
+echo "                   		<p class=\"maxCharLimit\">(Maximal 1000 Zeichen)</p>\n";
+echo "                 	</div>\n";
 echo "					\n";
 echo "					\n";
-echo "									<p class=\"pgoal\">Für wen ist dieser Kurs geeignet?</p>\n";
-echo "									<textarea id=\"suitableFor\" name=\"suitableFor\" class=\"txtarea\" required>".$course['suitableFor']."</textarea>\n";
-echo "                            <span class= \"tooltip left\" id=\"spanSuitableFor\"></span>\n";
+echo "                  <div class=\"courseInputWrapper\">\n";
+echo "										<p class=\"pgoal\">Für wen ist dieser Kurs geeignet?</p>\n";
+echo "										<textarea id=\"suitableFor\" name=\"suitableFor\" class=\"txtarea\" required>".strip_tags($course['suitableFor'])."</textarea>\n";
+echo "                  		<span class= \"tooltip left\" id=\"spanSuitableFor\"></span>\n";
+echo "                   		<p class=\"maxCharLimit\">(Maximal 1000 Zeichen)</p>\n";
+echo "                 	</div>\n";
 echo "						\n";
 echo "					\n";
 echo "				<br>\n";
@@ -59,14 +101,20 @@ echo "				<fieldset>\n";
 echo "					<legend> Zur Person, Kontaktmöglichkeiten </legend>\n";
 echo "					<div class=\"kurststeller-holder\">\n";
 echo "						<div class=\"kurssteller column-1\">\n";
-echo "							<p>Name des Kurserstellers:</p>\n";
-echo "							<input id= \"instructorName\" name=\"instructorName\" class=\"input-bg input-1\" value=\"".$course['instructorName']."\" required/>\n";
-echo "                            <span class= \"tooltip left\" id=\"spanInstructorName\"></span>\n";
+echo "      	      <div class=\"courseInputWrapper\">\n";
+echo "								<p>Name des Kurserstellers:</p>\n";
+echo "								<input id=\"instructorName\" name=\"instructorName\" class=\"input-bg input-1\" value=\"".$course['instructorName']."\" required/>\n";
+echo "              	<span class= \"tooltip left\" id=\"spanInstructorName\"></span>\n";
+echo "             		<p class=\"maxCharLimit\">(Maximal 30 Zeichen)</p>\n";
+echo "             	</div>\n";
 echo "							<br>\n";
-echo "							<p>Kontaktmöglichkeiten:</p>\n";
-echo "							<textarea id= \"instructorContact\" name=\"instructorContact\" class=\"txtarea\" required>".$course['instructorContact']."\n";
+echo "      	      <div class=\"courseInputWrapper\">\n";
+echo "								<p>Kontaktmöglichkeiten:</p>\n";
+echo "							<textarea id=\"instructorContact\" name=\"instructorContact\" class=\"txtarea\" required>".strip_tags($course['instructorContact'])."\n";
 echo "				</textarea>\n";
-echo "                            <span class= \"tooltip left\" id=\"spanInstructorContact\"></span>\n";
+echo "              	<span class= \"tooltip left\" id=\"spanInstructorContact\"></span>\n";
+echo "             		<p class=\"maxCharLimit\">(Maximal 70 Zeichen)</p>\n";
+echo "             	</div>\n";
 echo "\n";
 echo "						</div>\n";
 echo "						<div class=\"uploaded-img-wrapper column-2\">\n";
@@ -119,9 +167,13 @@ if($course["hImpairedSuitability"] == "false")
 echo "					<label for=\"hörbehinderteNein\"> Nein </label>\n";
 echo "\n";
 echo "\n";
-echo "					<p class=\"p-learn\">Beschreibung des Kursbildes für Benutzer mit Screenreadern:</p>\n";
-echo "					<input id= \"courseImageAlt\" name=\"courseImageAlt\" class=\"input-bg\" value=\"".$course["courseImageAlt"]."\" required >\n";
+echo "     	    <div class=\"courseInputWrapper\">\n";
+echo "						<p class=\"p-learn\">Beschreibung des Kursbildes für Benutzer mit Screenreadern:</p>\n";
+echo "						<input id= \"courseImageAlt\" name=\"courseImageAlt\" class=\"input-bg\" value=\"".$course["courseImageAlt"]."\" required >\n";
 echo "                            <span class= \"tooltip left\" id=\"spanCourseImageAlt\"></span>\n";
+
+echo "         		<p class=\"maxCharLimit\">(Maximal 70 Zeichen)</p>\n";
+echo "         	</div>\n";
 echo "\n";
 echo "\n";
 echo "				</fieldset>\n";
@@ -161,9 +213,12 @@ echo "                            \n";
 echo "                        </script>\n";
 echo "        \n";
 echo "                        <br>\n";
-echo "                        <p>Was ist in diesem Kurs enthalten?</p>\n";
-echo "                        <textarea id=\"materialContent\" name=\"materialContent\" class=\"txtarea\" required>".$course['materialContent']."</textarea>\n";
+echo "  							   	    <div class=\"courseInputWrapper\">\n";
+echo "                 	 	      <p>Was ist in diesem Kurs enthalten?</p>\n";
+echo "                  	      <textarea id=\"materialContent\" name=\"materialContent\" class=\"txtarea\" required>".strip_tags($course['materialContent'])."</textarea>\n";
 echo "                            <span class= \"tooltip left\" id=\"spanMaterialContent\"></span>\n";
+echo "         										<p class=\"maxCharLimit\">(Maximal 300 Zeichen)</p>\n";
+echo "         								</div>\n";
 echo "                    </div> \n";
 echo "                </div>\n";
 echo "            </div>\n";
