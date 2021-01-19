@@ -16,7 +16,7 @@ echo "				<h1 class=\"admin_loginbox_element\"> Panel Login </h1>\n";
 echo "				<input name=\"adminname\" class=\"admin_loginbox_element admin_input\" placeholder=\"Benutzername\" /><br>\n";
 echo "				<input name=\"password\" type=\"password\" class=\"admin_loginbox_element admin_input\" placeholder=\"Kennwort\"/><br>\n";
 echo "\n";
-echo "				<input class=\"admin_loginbox_element admin_button\" type=\"submit\" value=\"Login\" name=\"Login\"/>\n";
+echo "				<input class=\"admin_loginbox_element admin_button\" type=\"submit\" value=\"Login\" name=\"login\"/>\n";
 echo "			</form>\n";
 echo "\n";
 echo "		</div>\n";

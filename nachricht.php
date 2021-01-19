@@ -1,5 +1,6 @@
 
 <?php
+$page = 'nachricht';
 
 	$_htmltitel = array(
 												"gekauft" => "Kauf erfolgreich!",
@@ -81,12 +82,14 @@
 	echo "	<head>\n";
 	echo "		<link rel=\"stylesheet\" type=\"text/css\" href=\"css/style.css\"> \n";
 	echo "		<link rel=\"stylesheet\" href='https://fonts.googleapis.com/css?family=Poppins'>\n";
+	echo "  <link rel=\"stylesheet\" href=\"https://cdn.clarkhacks.com/OpenDyslexic/v1/OpenDyslexic.css\">\n";
 	echo "		<meta charset=\"UTF-8\">\n";
 	echo "		<title>".$titel." </title>\n";
 	echo "	</head>\n";
 	echo "	<body class=\"body_kaufnachricht\">\n";
-	echo "		<h1> <span class=\"span-bg\">".$titel2." </span> <br>".$nachricht."</h1>\n";
+	echo "		<h1 class = \"h1-msg\"> <span class=\"span-bg\">".$titel2." </span> <br>".$nachricht."</h1>\n";
 	echo "		<a class=\"redirect\" href=\"$redirect\">$redirecttext</a>\n";
+	echo "  <script src=\"../js/script.js\"></script>\n";
 	echo "	</body>\n";
 	echo "</html>\n";
 

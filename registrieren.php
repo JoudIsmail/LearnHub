@@ -31,8 +31,12 @@ if(isset($_GET["error"]))
 			echo "<span class=\"spanError\">Das Passwort wurde nicht korrekt wiederholt. Bitte versuchen Sie es noch einmal.</span>";
 			break;
 		case "schlechtes_passwort":
-			echo "<span class=\"spanError\">Ihr gewähltes Passwort ist nicht mindestens 8 Zeichen lang. Bitte wählen Sie ein längeres Passwort.</span>";
+			echo "<span class=\"spanError\">Ihr gewähltes Passwort erfüllt nicht die Vorraussetzungen für ein sicheres Passwort. Bitte wählen Sie ein geeignetes Passwort.</span>";
 			break;
+		case "schlechte_email":
+			echo "<span class=\"spanError\">Die von Ihnen angegebene E-Mail Adresse ist nicht gültig. Bitte geben Sie eine gültige E-Mail Adresse ein.</span>";
+			break;
+
 	}
 }
 echo "                    <input id=\"email\" name=\"email\" type=\"email\" required=\"\" placeholder=\"E-Mail Adresse\"/>		\n";
@@ -48,6 +52,10 @@ echo "                <div class=\"input-container\">		\n";
 echo "                    <input id=\"confirm-pass\" name=\"passwordRepeat\" type=\"password\" required=\"\" placeholder=\"Passwort wiederholen\" onkeypress=\"return AvoidSpace(event)\"/>\n";
 echo "                            <span class= \"tooltip left\" id=\"tooltipPassConf\"></span>\n";
 echo "                </div>\n";
+echo "								<noscript>\n";
+echo " 		 	         		<p style=\"color:white\"> Das Passwort muss 8 bis 20 Zeichen haben, und aus folgenden Dingen bestehen:<ul style=\"color:white\"><li>mindestens ein Kleinbuchstabe</li><li>mindestens ein Großbuchstabe</li><li>mindestens eine Zahl (0-9)</li><li>mindestens ein Sonderzeichen (Erlaubt sind " . '!"#$%&\'()*+,-./:;<=>@[]^_`{|}~@' . ")</li><li>Keine Leerzeichen</li></ul></p>\n";
+echo "								</noscript>\n";
+echo "								<br>\n";
 echo "                    <input id=\"register\" name=\"register\" type=\"submit\" class=\"btn-01\"  value=\"Registrieren\"/>\n";
 echo "            </form>	\n";
 echo "            </div> \n";

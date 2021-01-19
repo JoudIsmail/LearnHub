@@ -1,4 +1,15 @@
 <?php
+	/*
+		do.php
+		
+			Ziel von HTML Formularen mit method="POST".
+			
+			Auf erster Ebene wird bestimmt, aus welchem HTML Formular die HTTP Anfrage tatsächlich stammt.
+			
+			Danach werden Primärfunktionen aufgerufen, die die HTML Formulare behandeln.
+	
+	*/
+
 	if (session_status() == PHP_SESSION_NONE) {
 			session_start();
 	}
@@ -9,6 +20,8 @@
 		session_destroy();
 	}
 
+
+	//HTML Formular zum Anmelden in anmelden.php
 	if(isset($_POST["login"]))
 	{
 
@@ -42,6 +55,7 @@
 
 	}
 
+	//HTML Formular zum Registrieren in registrieren.php
 	if(isset($_POST["register"]))
 	{
 		if(strcmp($_POST["password"], $_POST["passwordRepeat"]) !== 0)
@@ -74,11 +88,17 @@
 		{
 			header("Location: registrieren.php?error=schlechtes_passwort");
 			exit;
+		} catch (badEmailException $e)
+		{
+			header("Location: registrieren.php?error=schlechte_email");
+			exit;
+
 		}
 		header("Location: /nachricht.php?type=registriert");
 
 	}
 
+	//HTML Formular zum Löschen eines Kurses in adminpanel.php
 	if(isset($_POST["deleteCourse"]))
 	{
 		deleteCourse($_POST["id"]);
@@ -86,7 +106,7 @@
 
 	}
 
-
+	//HTML Formular zum Speichern von Änderungen an einem Kurs in kurs_bearbeiten.php
 	if(isset($_POST["editCourse"]))
 	{
 		try
@@ -160,6 +180,7 @@
 
 	}
 
+	//HTML Formular zum Erstellen eines neuen Kurses in kurs_erstellen.php
 	if(isset($_POST["addCourse"]))
 	{
 		try
@@ -223,6 +244,7 @@
 
 	}
 
+	//HTML Formular zum Kaufen eines Kurses entweder von kurse.php oder von shop.php
 	if(isset($_POST["buyCourse"]))
 	{
 		try
@@ -238,6 +260,7 @@
 		header("Location: /nachricht.php?type=gekauft");
 	}
 
+	//HTML Formular zum Hinzufügen eines neuen Gästebucheintrags in gaestebuch.php
 	if(isset($_POST["addEntry"]))
 	{
 		try

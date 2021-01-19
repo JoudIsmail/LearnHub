@@ -12,63 +12,79 @@ $kursid = $_GET["id"];
 $kurse = readCoursesFile();
 $kurs = $kurse[findCourseById($kurse, $kursid)];
 
-$erstellerversion = isset($_SESSION["createdCourses"][$kursid]);
-$teilnehmerversion = isset($_SESSION["boughtCourses"][$kursid]);
-$nichtteilnehmerversion = isset($_SESSION["email"]) && !isset($_SESSION["boughtCourses"][$kursid]);
-$gastversion = !isset($_SESSION["email"]);
+$erstellerversion = $teilnehmerversion = $nichtteilnehmerversion = $gastversion = false;
 
-echo "        <div class=\"main-container\">\n";
-echo "            <div class=\"main-wrapper\">\n";
-echo "                <div class=\"description-container column-8\">\n";
-echo "                    <h1 class=\"h1-java\"> ".$kurs["title"]."</h1>\n";
-echo "                    <p class=\"p-description\">".$kurs["summary"]." </p>\n";
-echo "                </div>\n";
-echo "                <div class=\"img-container column-9\">\n";
-echo "                	<img class=\"img-kurs\"\n";
-echo "                  	alt=\"".$kurs["courseImageAlt"]."\"\n";
-echo "                    src=\"".$kurs["courseImagePath"]."\"><br>\n";
+if(isset($_SESSION) && isset($_SESSION["id"]))
+{
+	$erstellerversion = $kurs["creatorId"] == $_SESSION["id"];
+	$teilnehmerversion = in_array($_SESSION["id"], $kurs["participants"]);
+	$nichtteilnehmerversion = isset($_SESSION["email"]) && !$teilnehmerversion;
+	$gastversion = false;
+}else{
+	$erstellerversion = false;
+	$teilnehmerversion = false;
+	$nichtteilnehmerversion = false;
+	$gastversion = true;
+
+}
+
+echo "      <section>\n";
+echo "        <header class=\"main-container\">\n";
+echo "        	<div class=\"main-wrapper\">\n";
+echo "          	<div class=\"description-container column-8\">\n";
+echo "          		<h1 class=\"h1-java\"> ".$kurs["title"]."</h1>\n";
+echo "            	<p class=\"p-description\">".$kurs["summary"]." </p>\n";
+echo "          	</div>\n";
+echo "          	<div class=\"img-container column-9\">\n";
+echo "              <img class=\"img-kurs\"\n";
+echo "                alt=\"".$kurs["courseImageAlt"]."\"\n";
+echo "                src=\"".$kurs["courseImagePath"]."\"><br>\n";
 if($erstellerversion)
 {
-	echo "                <a href=\"kurs_bearbeiten.php?id=$kursid\">\n";
-	echo "									<input name=\"id\" type=\"hidden\" value=\"".$kursid."\">\n";
-	echo "									<input name=\"editCourse\" type=\"submit\" class=\"btn\" value=\"Kurs bearbeiten\">\n";
-	echo "                </a>\n";
+	echo "            <form action=\"kurs_bearbeiten.php\" method=\"get\">\n";
+	echo "							<input name=\"id\" type=\"hidden\" value=\"".$kursid."\">\n";
+	echo "							<button type=\"submit\" class=\"btn\"> Kurs bearbeiten</button>\n";
+	echo "            </form>\n";
 }else if($nichtteilnehmerversion)
 {
-	echo "								<form action=\"do.php\" method=\"post\">\n";
-	echo "									<input name=\"id\" type=\"hidden\" value=\"".$kursid."\">\n";
-	echo "                 	<input name=\"buyCourse\" type=\"submit\" class=\"btn\" value=\"Kaufen\">\n";
-	echo "								</form>\n";
+	echo "						<form action=\"do.php\" method=\"post\">\n";
+	echo "							<input name=\"id\" type=\"hidden\" value=\"".$kursid."\">\n";
+	echo "           		<input name=\"buyCourse\" type=\"submit\" class=\"btn\" value=\"Kaufen\">\n";
+	echo "						</form>\n";
 
 }else if($gastversion)
 {
-	echo "                    <a href=\"nachricht.php?type=erst_registrieren\"> <input name=\"buyCourse\" type=\"submit\" class=\"btn\" value=\"Kurs kaufen\"></a>\n";
-
-
+	echo "           	<form action=\"nachricht.php\" method=\"get\">\n";
+	echo "           		<input type=\"hidden\" name=\"type\" value=\"erst_registrieren\">\n";
+	echo "							<button class=\"btn\" type=\"submit\">Kurs kaufen</button>\n";
+	echo "            </form>\n";
 }
-echo "            		</div>\n";
-echo "        		</div>\n";
+echo "           	</div>\n";
+echo "        	</div>\n";
 if($erstellerversion)
 {
-	echo "          <div class=\"teilnehmer-container\">\n";
-	echo "              <h2 class=\"h2-teilnehmer\"> Teilnehmer: </h2>\n";
-	echo "              <div class=\"teilnehmerliste\">\n";
+	echo "        <article class=\"teilnehmer-container\">\n";
+	echo "       		<h2 class=\"h2-teilnehmer\"> Teilnehmer: </h2>\n";
+	echo "         	<div class=\"teilnehmerliste\">\n";
 	generateParticipantsList($kurs);
-	echo "              </div>\n";
 	echo "          </div>\n";
+	echo "        </article>\n";
 
 }
-echo "     		</div>\n";
+echo "     		</header>\n";
 echo "        <div class=\"col-wrapper\">\n";
 echo "            <div class=\"column2 column-bg column-1\">\n";
 echo "                <div class=\"learn-container\">\n";
+echo "			<section>\n";
 echo "                    <h2 class=\"h2-teilnehmer\"> Das wirst du lernen </h2>\n";
 echo "                    ".$kurs["educationalContent"]."\n";
-
+echo "			</section>\n";
+echo "			<section>\n";
 echo "                    <h2 class=\"h2-teilnehmer\"> Für wen eignet sich dieser Kurs? </h2>\n";
 echo "                    ".$kurs["suitableFor"]."\n";
+echo "			</section>\n";
 echo "                </div>\n";
-echo "                <div class=\"barrier-container\">\n";
+echo "                <section class=\"barrier-container\">\n";
 echo "                    <h2 class=\"h2-teilnehmer\"> Barrierefreiheit </h2>\n";
 if($kurs["vImpairedSuitability"] == "true")
 {
@@ -85,24 +101,24 @@ if($kurs["hImpairedSuitability"] == "true")
 
 }
 
-echo "                </div>\n";
+echo "                </section>\n";
 echo "            </div>\n";
 echo "            <div class=\"column2 column-bg column-4 col-bg-3 col-enthalten\">\n";
-echo "                    <div class=\"enthalten-bg\">\n";
-echo "                    <h2 class=\"h2-teilnehmer\"> Das ist im Kurs enthalten </h2> <br>\n";
+echo "                    <section class=\"enthalten-bg\">\n";
+echo "                    	<h2 class=\"h2-teilnehmer\"> Das ist im Kurs enthalten </h2> <br>\n";
 echo "                    	".$kurs["materialContent"]."\n";
-echo "                    </div>\n";
-echo "                    <div class=\"contact-container\">\n";
+echo "                    </section>\n";
+echo "                    <section class=\"contact-container\">\n";
 echo "                        <h2 class=\"h2-teilnehmer\"> Kontakt und Beratung </h2>\n";
 echo "                        <img class=\"img-teacher\" alt=\"Bild des Kurserstellers\" src=\"".$kurs["instructorImagePath"]."\">\n";
 echo "                        <p class=\"p-bg\"> <strong class=\"strong-name\"> ".$kurs["instructorName"]." </strong> <br>\n";
 echo "                            Ersteller des Kurses <br> <br>\n";
 echo "                            Kontakt <br>\n";
 echo "                            ".$kurs["instructorContact"]."</p>\n";
-echo "                    </div>\n";
+echo "                    </section>\n";
 echo "            </div>\n";
 echo "        </div>\n";
-echo "        <div class=\"review-container\">\n";
+echo "        <section class=\"review-container\">\n";
 echo "            <h2 class=\"h2-teilnehmer\"> Bewertungen von Teilnehmern dieses Kurses </h2>\n";
 echo "            <div class=\"columns-3\">\n";
 echo "                <div class=\"col-7\">\n";
@@ -139,7 +155,8 @@ echo "                        Es wäre gut, wenn man einiges zusammen fasst und 
 echo "                        um den gesamten Zusammenhang besser <br> verstehen bzw. nachvollziehen zu können. </p>\n";
 echo "                </div>\n";
 echo "            </div>\n";
-echo "        </div>\n";
+echo "        </section>\n";
+echo "      </section>\n";
 
 require_once('inc/footer.php');
 ?>
