@@ -1,6 +1,5 @@
 <?php
 echo "        <footer class=\"footer-distributed\">\n";
-echo "\n";
 echo "					<div class=\"footer-left\">\n";
 echo "						<img alt=\"leanhublogo\" src=\"../bilder/learnhublogo.png\">\n";
 echo "						<h3>About<span class=\"learn\">Learn</span><span class=\"hub\"><mark>hub</mark></span></h3>\n";
@@ -33,7 +32,7 @@ echo "							<a href=\"#\"><i class=\"fa fa-youtube\"></i></a>\n";
 echo "						</div>\n";
 echo "					</div>\n";
 echo "				</footer>\n";
-echo "    	</article>\n";
+echo "    	</div>\n";
 if(($page == 'login') || ($page == 'registrieren')){
     echo "  <script src=\"../js/validationLog.js\"></script>\n";
 }
