@@ -1,5 +1,14 @@
 <?php
 
+	/*
+		primaerfunktionen.php
+			
+			Führen Operation durch, die zu Datenbestandsänderungen führen.
+			Diese Operationen werden von do.php aufgerufen, also nachdem ein POST Formular abgesandt wurde.
+			
+			Diese Datei bedient sich an Funktionen aus hilfsfunktionen.php, um Datenbestände zu ändern.
+	*/
+
 	require_once 'hilfsfunktionen.php';
 
 
@@ -18,10 +27,6 @@
 			{
 				$_SESSION["id"] = $account["id"];
 				$courses = readCoursesFile();
-				$boughtCourses = getBoughtCourses($courses, $_SESSION["id"]);
-				$_SESSION["boughtCourses"] = $boughtCourses;
-				$createdCourses = getCreatedCourses($courses, $_SESSION["id"]);
-				$_SESSION["createdCourses"] = $createdCourses;
 				$_SESSION["email"] = $email;
 
 			} 
@@ -45,10 +50,47 @@
 			{
 				throw new registerFieldEmptyException("");
 			}
-			if(strlen(utf8_decode($password)) < 8)
+
+			if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+				throw new badEmailException("");
+			}
+
+			//falls passwort schlechte länge hat, dann werfe exception
+			//strlen gibt lediglich die anzahl von bytes zurück, und nicht die anzahl von zeichen.
+			//utf8 zeichen bestehen aus 1, 2, 3 oder 4 bytes
+			//iso zeichen bestehen aus einem byte
+			if (strlen(utf8_decode($password)) < 8 || strlen(utf8_decode($password)) > 20) {
+				throw new badPasswordException("");
+    			}
+
+			if (!preg_match("#[0-9]+#", $password)) {
+				throw new badPasswordException("");
+			}
+
+			if (!preg_match("#[a-z]+#", $password)) {
+				throw new badPasswordException("");
+			}
+
+			if (!preg_match("#[A-Z]+#", $password)) {
+				throw new badPasswordException("");
+			}
+
+			$specialChars = '!"#$%§&\'()*+,-./:;<=>@[\]^_`{|}~"';
+
+			$specialCharUsed = false;
+			foreach(str_split($specialChars) as $char)
+			{
+				if (strpos($password, $char) !== false) {
+    			$specialCharUsed = true;
+					break;
+				}
+			}
+
+			if(!$specialCharUsed)
 			{
 				throw new badPasswordException("");
 			}
+
 			try
 			{
 				$accounts = readUsersFile();
@@ -250,8 +292,6 @@
 				$courses[$index]["courseImageAlt"] = $course["courseImageAlt"];
 				
 				writeCoursesFile($courses);
-				$course["participants"] = $courses[$index]["participants"];
-				$_SESSION["createdCourses"][$course["id"]] = $course;
 			}
 			else
 			{
@@ -423,7 +463,6 @@
 
 			writeCourse($course, array());
 			$course["participants"] = array();
-			$_SESSION["createdCourses"][$course["id"]] = $course;
 		}
 		else
 		{
@@ -436,14 +475,12 @@
 	{
 		if (isset($_SESSION["email"]))
 		{
-			if(!isset($_SESSION["boughtCourses"][$courseId]))
+			$courses = readCoursesFile();
+			$index = findCourseById($courses, $courseId);
+			if(!in_array($_SESSION["id"], $courses[$index]["participants"]))
 			{
-				$courses = readCoursesFile();
-				$index = findCourseById($courses, $courseId);
 				array_push($courses[$index]["participants"], $_SESSION["id"]);
 				writeCoursesFile($courses);
-				$course = $courses[$index];
-				$_SESSION["boughtCourses"][$course["id"]] = $course;
 			}
 			else
 			{
