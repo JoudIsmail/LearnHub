@@ -1,7 +1,7 @@
 <?php
 require_once('title.php');
 $title = checkPage($page);
-echo "<DOCTYPE html>\n";
+echo "<!DOCTYPE html>\n";
 echo "<html lang=\"de\">\n";
 echo "\n";
 echo "<head>\n";
@@ -17,19 +17,20 @@ echo "</head>\n";
 echo "\n";
 echo "<body class=\"normal\">\n";
 if((($page == 'registrieren')&&(!isset($_SESSION['email'])))||((!isset($_SESSION['email']))&&($page == 'login'))){
-	echo "	<article class=\"fullscreen fullscreen-bg\">\n";
+	echo "	<div class=\"fullscreen fullscreen-bg\">\n";
 }else{
-	echo "	<article class=\"fullscreen \">\n";
+	echo "	<div class=\"fullscreen \">\n";
 }
-echo "			<nav>\n";
-echo "      	<section class=\"container\">\n";
+echo "			<header>\n";
+echo "				<nav>\n";
+echo "    	  	<div class=\"container\">\n";
 if (!empty($_SESSION['email'])){
     require_once('nav.php');
 }else{
     require_once('nav_gast.php');
 }
-echo "        </section>\n";
-echo "      </nav>\n";
+echo "      	  </div>\n";
+echo "     	 </nav>\n";
+echo "   	 </header>\n";
 echo "\n";
 ?>
-
