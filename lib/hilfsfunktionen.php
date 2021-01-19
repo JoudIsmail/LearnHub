@@ -15,23 +15,23 @@
 	*/
 												
 	$COURSE_KEYS = array(
-												0 => "id",
-												1 => "title",
-												2 => "summary",
-												3 => "courseImagePath",
-												4 => "priceCent",
-												5 => "priceEuro",
-												6 => "educationalContent",
-												7 => "suitableFor",
-												8 => "materialContent",
-												9 => "instructorName",
-												10 => "instructorContact",
-												11 => "instructorImagePath",
-												12 => "hImpairedSuitability",
-												13 => "vImpairedSuitability",
-												14 => "courseImageAlt",
-												15 => "creatorId",
-											);
+										0 => "id", 
+										1 => "title",
+										2 => "summary", //kurzbeschreibung
+										3 => "courseImagePath", //pfad zum kursbild auf dem server
+										4 => "priceCent", 
+										5 => "priceEuro",
+										6 => "educationalContent", //lernbare themen
+										7 => "suitableFor", //für wen ist der kurs geeignet
+										8 => "materialContent", //was ist im kurs enthalten 
+										9 => "instructorName", //name des kursleiters
+										10 => "instructorContact",
+										11 => "instructorImagePath", //pfad zum bild des kursleiters auf dem server
+										12 => "hImpairedSuitability", //ist der kurs für hörbehinderte geeignet?
+										13 => "vImpairedSuitability", //ist der kurs für sehbehinderte geeignet?
+										14 => "courseImageAlt", //text beschreibung des kurs bildes
+										15 => "creatorId", //benutzer-id des kurs besitzers
+									);
 
 	$ENTRY_KEYS = array(
 												0 => "title",
@@ -57,11 +57,11 @@
 	
 
 	//Absoluter Pfad zum Ordner, in dem hochgeladene Kursbilder gespeichert werden
-	$COURSE_IMAGE_PATH_ABS = $_SERVER["DOCUMENT_ROOT"] . "/bilder/course-images";
-	$COURSE_IMAGE_PATH = "/bilder/course-images";
+	$COURSE_IMAGE_PATH_ABS = $_SERVER["DOCUMENT_ROOT"] . "/bilder/course-images"; //absoluter pfad (also mit angabe des dateisystems)
+	$COURSE_IMAGE_PATH = "/bilder/course-images"; //nicht angewendet
 	//Absoluter Pfad zum Ordner, in dem hochgeladene Bilder von Kurserstellern gespeichert werden
 	$INSTRUCTOR_IMAGE_PATH_ABS = $_SERVER["DOCUMENT_ROOT"] . "/bilder/instructor-images";
-	$INSTRUCTOR_IMAGE_PATH = "/bilder/instructor-images";
+	$INSTRUCTOR_IMAGE_PATH = "/bilder/instructor-images"; //nicht angewendet
 
 
 	
@@ -79,6 +79,7 @@
 		global $INSTRUCTOR_IMAGE_PATH_ABS;
 		global $COURSE_IMAGE_PATH_ABS;
 
+		//falls Datei unter $path nicht existiert, kreiere die Datei
 		function create_file_if_not_exists($path)
 		{
 			if(!file_exists($path))
@@ -88,6 +89,7 @@
 			}
 		}
 
+		//falls Ordner unter $path nicht existiert, kreiere den Ordner
 		function create_dir_if_not_exists($path)
 		{
 			if(!is_dir($path))
@@ -111,14 +113,15 @@
 
 
 
-													
 
+	
 
 	/*
 			Gibt Anzahl der Kurse aus.
 	*/
 	function countCourses()
 	{
+		
 		//Anzahl der CSV Felder in der courses.csv
 		$amount = 0;
 		if(($handle = fopen($GLOBALS["COURSES_PATH"], "r")) !== false)
